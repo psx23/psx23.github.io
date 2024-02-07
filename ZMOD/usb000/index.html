@@ -51,10 +51,10 @@
         ua = navigator.userAgent,
         fwv = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple")),
         // dlcount = 1,
-        progress_msg_frag1 = "<h1>ВКЛЮЧАЮ  <s>H\u24d4N</s> ",
+        progress_msg_frag1 = "<h1>Enabling <s>H\u24d4N</s> ",
         progress_msg_frag2 = "%</h1>",
         fail_msg_frag =
-          '<div id="c" class="fail"></div><div id="d"><s>H\u24d4N</s> <b>ПОВТОРИ Я НЕ СМОГ ВКЛЮЧИТЬ HEN</b></div>',
+          '<div id="c" class="fail"></div><div id="d"><s>H\u24d4N</s> <b>Exploit initialization failed!</b></div>',
         sc_fs_open = 0x321,
         sc_fs_read = 0x322,
         sc_fs_write = 0x323,
@@ -1302,7 +1302,7 @@
 
       function logAdd() {}
       document.write(
-        '<html> <head> <title>PSPx.RU - H\u24d4N Enabler</title> <style>html{color: #fff; left: 100%; overflow: hidden; position: relative;}*{font-weight: 100; font-size: 32px !important;}#a{display: table; height: 100%; left: -100%; position: relative; width: 100%; text-align: center;}#b{display: table-cell; text-align: center; vertical-align: middle; width: 100%;}#c{-webkit-animation: s 2s infinite; -webkit-border-radius: 10px; background: #6f0; display: inline-block; height: 48px; right: 24px; position: absolute; top: 28px; width: 48px;}#c.fail{background: #f00;}#d{position: relative; z-index: 1;}#result{-webkit-border-radius: 10px; background: #000; display: inline-block; font-weight: 700; padding: 32px; padding-right: 92px; position: relative;}@-webkit-keyframes s{0%{-webkit-transform: rotate(0);}100%, 90%{-webkit-transform: rotate(540deg);}}input{opacity: 0;}b{color: #f00;}s{color: #6f0; text-decoration: none; font-weight: 800;}</style> </head> <body> <div id="exploit"></div><div id="trigger"></div><div id="a"> <input type="radio" autofocus/> <div id="b"> <div id="result"> <div id="c"></div><div id="d">ВКЛЮЧАЮ  <s>H\u24d4N</s></div></div></div></div></body></html>'
+        '<html> <head> <title>PSPx.RU - H\u24d4N Enabler</title> <style>html{color: #fff; left: 100%; overflow: hidden; position: relative;}*{font-weight: 100; font-size: 32px !important;}#a{display: table; height: 100%; left: -100%; position: relative; width: 100%; text-align: center;}#b{display: table-cell; text-align: center; vertical-align: middle; width: 100%;}#c{-webkit-animation: s 2s infinite; -webkit-border-radius: 10px; background: #6f0; display: inline-block; height: 48px; right: 24px; position: absolute; top: 28px; width: 48px;}#c.fail{background: #f00;}#d{position: relative; z-index: 1;}#result{-webkit-border-radius: 10px; background: #000; display: inline-block; font-weight: 700; padding: 32px; padding-right: 92px; position: relative;}@-webkit-keyframes s{0%{-webkit-transform: rotate(0);}100%, 90%{-webkit-transform: rotate(540deg);}}input{opacity: 0;}b{color: #f00;}s{color: #6f0; text-decoration: none; font-weight: 800;}</style> </head> <body> <div id="exploit"></div><div id="trigger"></div><div id="a"> <input type="radio" autofocus/> <div id="b"> <div id="result"> <div id="c"></div><div id="d">Enabling <s>H\u24d4N</s></div></div></div></div></body></html>'
       );
       setTimeout(function() {
         initROP(true);
