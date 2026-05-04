@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <title>Выбор игр PS4</title>
+    <link rel="stylesheet" href="style.css-1.css" tppabs="http://www.ps4hen.ru/gen/style.css?1">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a href="index.htm" tppabs="http://www.ps4hen.ru/gen/">Выбор игр для установки</a></h1>
+        </div>
+        
+        <div class="section" id="hddSection">
+            <div class="section-header" onclick="toggleHDDSection()">
+                <h2>&#128192; Объём памяти консоли</h2>
+                <button class="toggle-btn" id="hddToggle">&minus;</button>
+            </div>
+            <div class="hdd-grid" id="hddContainer">
+                
+                <div class="hdd-option " onclick="selectHDD(this, '380')">
+                    <div class="hdd-name">500ГБ</div>
+                    <div class="hdd-size">380 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-1" value="380" >
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, '600')">
+                    <div class="hdd-name">750ГБ</div>
+                    <div class="hdd-size">600 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-2" value="600" >
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, '645')">
+                    <div class="hdd-name">825ГБ</div>
+                    <div class="hdd-size">645 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-3" value="645" >
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, '820')">
+                    <div class="hdd-name">1ТБ</div>
+                    <div class="hdd-size">820 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-4" value="820" >
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, '1700')">
+                    <div class="hdd-name">2ТБ</div>
+                    <div class="hdd-size">1700 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-5" value="1700" >
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, '3400')">
+                    <div class="hdd-name">4ТБ</div>
+                    <div class="hdd-size">3400 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-6" value="3400" >
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="section" id="gamesSection" style="display:none">
+            <div class="section-header">
+                <h2>&#127918; Выберите игры</h2>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="gameSearch" class="search-input" placeholder="Поиск игры, описание или жанр" 
+                       onfocus="onSearchFocus()" onblur="onSearchBlur()">
+                <button class="clear-search" id="clearSearch" onclick="clearSearch()">&times;</button>
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn secondary" onclick="handleResetGames()">
+                    &#10007; Сброс
+                </button>
+                <button class="btn accent" onclick="handleAutoSelect()">
+                    &#9733; Авто
+                </button>
+            </div>
+            
+            <div class="games-container" id="gamesContainer">
+                
+                <div class="game-item  " onclick="toggleGame(this, '1');">
+                    <div class="game-number">1</div>
+                    <div class="game-header">
+                        <div class="game-title">A Way Out (2 джойстика)</div>
+                        <div class="game-size">17.24 GB</div>
+                    </div>
+                    <div class="game-description">Кооперативный приключенческий экшен, где двое заключенных пытаются сбежать из тюрьмы. Требует двух игроков.<br><b> кооператив, экшен, приключение, драка, тюрьма, побег, два игрока</b></div>
+                    <input type="checkbox" value="1" id="g-1" >
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, '2');">
+                    <div class="game-number">2</div>
+                    <div class="game-header">
+                        <div class="game-title">2014 FIFA World Cup Brazil </div>
+                        <div class="game-size">6980 MB</div>
+                    </div>
+                    <input type="checkbox" value="2" id="g-2" >
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer" id="footerPanel">
+        <div class="stats">
+            <div class="stat-row">
+                <span class="stat-label">Выбрано игр:</span>
+                <span class="stat-value selected" id="ags">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Размер:</span>
+                <span class="stat-value size" id="gb1">0</span>
+                <span class="stat-label">/</span>
+                <span class="stat-value limit" id="gb2">0</span>
+                <span class="stat-label">GB</span>
+            </div>
+            <div class="storage-info">
+                <span class="stat-label">Использовано:</span>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-large" id="shareBtn" style="display: none;" onclick="share(); return false">&#128230; Поделиться</button>
+            <button class="btn btn-large accent" id="createBtn" onclick="submitForm(); return false">&#128640; Создать</button>
+        </div>
+    </div>
+    
+    <form id="mainForm" action="" method="GET" style="display: none;">
+        <input type="hidden" name="h" id="formH" value="">
+        <input type="hidden" name="g" id="formG" value="">
+    </form>
+
+    <!-- Модальное окно -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">&#9888; Сообщение</span>
+            </div>
+            <div class="modal-content" id="modalContent">
+                Текст сообщения
+            </div>
+            <div class="modal-actions" id="modalActions">
+                <button class="modal-btn modal-btn-ok" id="modalOkBtn">OK</button>
+                <button class="modal-btn modal-btn-cancel" id="modalCancelBtn" style="display: none;">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Глобальные переменные
+        const recommendedGames = {
+'3400': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed IV Black Flag", "Assassin's Creed Valhalla", "Assetto Corsa - Competizione", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Beyond Two Souls", "BioShock The Collection", "Bloodborne", "Call of Duty Black Ops III", "Call of Duty Ghosts", "Call of Duty Vanguard", "Contra Collection", "Crash Team Racing Nitro Fueled (CTR)", "Crysis 3 Remastered", "Cuphead", "Cyberpunk 2077", "Dark Souls 3", "Days Gone", "Dead Cells", "Detroit Become Human", "Devil May Cry 5", "EA Sports FC 25", "Elden Ring", "FIFA 23", "Far Cry 5", "Far Cry 6", "Final Fantasy VII Remake", "Final Fantasy X", "Final Fantasy XV", "Five Nights at Freddys Core Collection", "GTA V", "Garfield Kart", "Ghost of Tsushima", "Ghostbusters", "Goat Simulator", "God of War", "God of War III Remastered", "God of War Ragnarok", "Gran Turismo Sport", "Guns Gore and Cannoli", "Hitman 2", "Hogwarts Legacy", "Horizon Zero Dawn", "Horizon запретный запад", "Injustice 2", "It Takes Two", "Jump Force", "Kena Bridge of Spirits", "Lego Ninja Go Movie", "Liftoff Drone Racing", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Marvels Spider-Man", "Marvel's Spider-Man Miles Morales", "Metro Exodus", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "Mortal Kombat 11 + ULTIMATE", "Mortal Kombat XL", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "NHL 20", "Naruto Shippuden Ultimate Trilogy", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Red Dead Redemption 2", "Resident Evil 3", "Resident Evil 4 Remake Deluxe Edition", "Resident Evil Village", "Rise of the Tomb Raider", "Rocket League", "S.T.A.L.K.E.R. - Call of Pripyat", "S.T.A.L.K.E.R. - Clear Sky", "S.T.A.L.K.E.R. - Shadow of Chernobyl", "Sackboy", "Sekiro Shadows Die Twice", "Shadow of the Tomb Raider", "Sniper Elite 5", "Snow Runner", "Sonic Colors", "Sonic Forces", "Star Wars Battlefront I", "Star Wars Jedi Survivor", "Stray", "Street Fighter V", "Subnautica", "Team Sonic Racing", "Teenage Mutant Ninja Turtles", "The Last of Us Part II", "The Last of Us Remastered", "The Sims 4", "The Witcher 3 Wild Hunt", "Titanfall 2", "UFC 4", "Uncharted 4 A Thief’s End", "Unravel Two", "Watch Dogs Complete Edition", "Watch Dogs Legion"],
+'600' : ["Air Missions", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Days Gone", "Dead Cells", "FIFA 23", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Resident Evil 4 Remake Deluxe Edition", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 3", "Unravel Two"],
+'645' : ["Air Missions", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Days Gone", "Dead Cells", "FIFA 23", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Resident Evil 4 Remake Deluxe Edition", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 3", "Unravel Two"],
+'380': ["Air Missions", "Atomic Heart Premium Edition", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Dead Cells", "FIFA 22", "GTA V", "Garfield Kart", "Goat Simulator", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "Unravel Two"],
+'1700': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Cyberpunk 2077", "Days Gone", "Dead Cells", "Detroit Become Human", "FIFA 23", "Far Cry 5", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "God of War Ragnarok", "Guns Gore and Cannoli", "Hogwarts Legacy", "Horizon Zero Dawn", "Horizon запретный запад", "Injustice 2", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Exodus", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Sega Mega Drive Classics", "Assetto Corsa - Competizione", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "NHL 20", "Naruto Shippuden Ultimate Trilogy", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Red Dead Redemption 2", "Biomutant", "Civilization 7", "Call of Duty Ghosts",  "The Forest", "Assassin's Creed Rogue", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "S.T.A.L.K.E.R. - Clear Sky", "S.T.A.L.K.E.R. - Shadow of Chernobyl", "Star Wars Jedi Survivor", "Stray", "Subnautica", "Teenage Mutant Ninja Turtles", "The Last of Us Part II", "The Last of Us Remastered", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 4", "Unravel Two", "Watch Dogs Complete Edition"],
+'820': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Injustice 2", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Days Gone", "Dead Cells", "UFC 4", "Far Cry 5", "Garfield Kart", "GTA V", "Goat Simulator", "God of War", "FIFA 23", "Mortal Kombat 11", "Guns Gore and Cannoli", "Hogwarts Legacy", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft Dungeons", "Minecraft", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Naruto Shippuden Ultimate Trilogy", "The Sims 4", "Red Dead Redemption", "Rise of the Tomb Raider","Sonic Colors", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Subnautica", "The Witcher 3 Wild Hunt", "Teenage Mutant Ninja Turtles", "Unravel Two"]
+        };
+        var GB = 0;
+        var ALLGB = 0;
+        var selectedHDD = 0;
+        var selectedGames = new Set();
+        
+        // Простые модальные функции
+        function showAlert(message, title) {
+            return new Promise(function(resolve) {
+                document.getElementById('modalTitle').innerHTML = (title || '&#9888; Сообщение');
+                document.getElementById('modalContent').innerHTML = message;
+                document.getElementById('modalOkBtn').style.display = 'block';
+                document.getElementById('modalCancelBtn').style.display = 'none';
+                document.getElementById('modalOverlay').style.display = 'flex';
+                
+                var okBtn = document.getElementById('modalOkBtn');
+                okBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(true);
+                };
+                
+                // Закрытие по клику на оверлей
+                document.getElementById('modalOverlay').onclick = function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        resolve(true);
+                    }
+                };
+            });
+        }
+        
+        function showConfirm(message, title) {
+            return new Promise(function(resolve) {
+                document.getElementById('modalTitle').innerHTML = (title || '&#10067; Подтверждение');
+                document.getElementById('modalContent').innerHTML = message;
+                document.getElementById('modalOkBtn').style.display = 'block';
+                document.getElementById('modalCancelBtn').style.display = 'block';
+                document.getElementById('modalOverlay').style.display = 'flex';
+                
+                var okBtn = document.getElementById('modalOkBtn');
+                var cancelBtn = document.getElementById('modalCancelBtn');
+                
+                okBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(true);
+                };
+                
+                cancelBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(false);
+                };
+                
+                // Закрытие по клику на оверлей = отмена
+                document.getElementById('modalOverlay').onclick = function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        resolve(false);
+                    }
+                };
+            });
+        }
+        
+        // Функция для скрытия кнопки "Поделиться"
+        function hideShareBtn() {
+            document.getElementById('shareBtn').style.display = 'none';
+            document.getElementById('createBtn').style.display = 'block';
+        }
+        
+        // Функция для показа кнопки "Поделиться"
+        function showShareBtn() {
+            document.getElementById('shareBtn').style.display = 'block';
+            document.getElementById('createBtn').style.display = 'none';
+        }
+        
+        // Функция для сворачивания/разворачивания секции HDD
+        function toggleHDDSection() {
+            const section = document.getElementById('hddSection');
+            const content = document.getElementById('hddContainer');
+            const toggleBtn = document.getElementById('hddToggle');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'grid';
+                toggleBtn.textContent = '\u2212';
+                section.classList.remove('collapsed');
+            } else {
+                content.style.display = 'none';
+                toggleBtn.textContent = '+';
+                section.classList.add('collapsed');
+            }
+        }
+        
+        // Функция для выбора/снятия всех игр
+        function checkall(s) {
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput.value.length > 0) {
+                showAlert('Нельзя использовать массовые операции во время поиска. Сначала очистите поле поиска.', '&#9888; Внимание');
+                return;
+            }
+            
+            const checkboxes = document.querySelectorAll('#gamesContainer input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                cb.checked = s;
+                const gameItem = cb.closest('.game-item');
+                if (gameItem) {
+                    if (s) {
+                        gameItem.classList.add('selected');
+                        gameItem.classList.remove('hidden');
+                        selectedGames.add(cb.value);
+                    } else {
+                        gameItem.classList.remove('selected');
+                        selectedGames.delete(cb.value);
+                    }
+                }
+            });
+            updateTextArea();
+        }
+        
+        // Функция для декодирования HTML entities
+        function decodeHtmlEntities(str) {
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = str;
+            return textarea.value;
+        }
+        
+        // Функция для автоматического выбора рекомендованных игр
+        function selReco() {
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput.value.length > 0) {
+                showAlert('Нельзя использовать авто-выбор во время поиска. Сначала очистите поле поиска.', '&#9888; Внимание');
+                return;
+            }
+            
+            if (GB === 0) return;
+            
+            // Сначала снимаем все выделения
+            checkall(0);
+            
+            // Получаем рекомендованные игры для выбранного HDD
+            const hddKey = GB.toString();
+            const recommendedList = recommendedGames[hddKey] || [];
+            
+            // Если нет рекомендованных игр для этого объема
+            if (recommendedList.length === 0) {
+                showAlert('Для выбранного объема HDD нет рекомендованных игр', '&#10067; Информация');
+                return;
+            }
+            
+            // Создаем Map для быстрого поиска
+            const recommendedMap = new Map();
+            recommendedList.forEach(game => {
+                const cleanGame = game.replace(/&#\d+;/g, '').trim();
+                recommendedMap.set(cleanGame.toLowerCase(), true);
+            });
+            
+            // Находим и выбираем рекомендованные игры по точному названию
+            const gameItems = document.querySelectorAll('.game-item');
+            let selectedCount = 0;
+            
+            gameItems.forEach(item => {
+                const gameTitleElement = item.querySelector('.game-title');
+                const gameName = gameTitleElement.textContent.trim();
+                const decodedGameName = decodeHtmlEntities(gameName);
+                const isRecommended = recommendedMap.has(decodedGameName.toLowerCase());
+                
+                if (isRecommended) {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        item.classList.add('selected');
+                        item.classList.remove('hidden');
+                        selectedGames.add(checkbox.value);
+                        selectedCount++;
+                    }
+                }
+            });
+            
+            if (selectedCount === 0) {
+                showAlert('Рекомендованные игры не найдены в списке. Возможно, названия не совпадают.', '&#10067; Информация');
+            } else {
+                hideShareBtn();
+                showAlert('Выбрано ' + selectedCount + ' рекомендованных игр', '&#9989; Готово');
+            }
+            
+            updateTextArea();
+            sortGames();
+        }
+        
+        // Обработчики для кнопок
+        async function handleResetGames() {
+            const confirmed = await showConfirm('Удалить выбранные игры?', '&#9888; Сброс выбора');
+            if (confirmed) {
+                checkall(0);
+                hideShareBtn();
+                sortGames();
+            }
+        }
+        
+        async function handleAutoSelect() {
+            const confirmed = await showConfirm('Выбрать рекомендуемые игры? Текущий список будет удален.', '&#9733; Автовыбор');
+            if (confirmed) {
+                checkall(0);
+                hideShareBtn();
+                selReco();
+            }
+        }
+        
+        // Обновление текстового поля и подсчетов
+        function updateTextArea() {
+            ALLGB = 0;
+            const allVals = [];
+            
+            document.querySelectorAll('#gamesContainer input[type="checkbox"]:checked').forEach(function(cb) {
+                const sizeElement = cb.closest('.game-item').querySelector('.game-size');
+                const sizeText = sizeElement.textContent.replace(' GB', '');
+                ALLGB += parseFloat(sizeText);
+                allVals.push(parseInt(cb.value));
+            });
+            
+            document.getElementById('formG').value = allVals.join(',');
+            document.getElementById('ags').textContent = allVals.length;
+            updateGB();
+        }
+        
+        function updateGB() {
+            document.getElementById('gb2').textContent = GB;
+            document.getElementById('gb1').textContent = Math.trunc(ALLGB);
+            
+            const footer = document.getElementById('footerPanel');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (GB > 0) {
+                const percentage = Math.min((ALLGB / GB) * 100, 100);
+                progressBar.style.width = percentage + '%';
+                
+                if (percentage > 80) {
+                    progressBar.classList.add('over');
+                } else {
+                    progressBar.classList.remove('over');
+                }
+            }
+            
+            if (GB < ALLGB) {
+                footer.classList.add('overlimit');
+                progressBar.classList.add('over');
+            } else {
+                footer.classList.remove('overlimit');
+                if (ALLGB / GB <= 0.8) {
+                    progressBar.classList.remove('over');
+                }
+            }
+        }
+        
+        function updateHdd() {
+            GB = selectedHDD;
+            if (GB > 0) {
+                document.getElementById('gamesSection').style.display = 'block';
+            }
+            updateGB();
+        }
+        
+        // Выбор HDD
+        function selectHDD(element, value) {
+            document.querySelectorAll('.hdd-option').forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('input[type="radio"]').checked = false;
+            });
+            
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+            selectedHDD = parseFloat(value);
+            document.getElementById('formH').value = value;
+            
+            updateHdd();
+            
+            setTimeout(() => {
+                toggleHDDSection();
+            }, 300);
+        }
+        
+        // Переключение игры
+        function toggleGame(element, gameId) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            if (!checkbox) return;
+            
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                element.classList.remove('selected');
+                selectedGames.delete(gameId);
+            } else {
+                checkbox.checked = true;
+                element.classList.add('selected');
+                selectedGames.add(gameId);
+            }
+            
+            updateTextArea();
+            
+            // ВСЕГДА скрываем кнопку "Поделиться" при изменении выбора
+            hideShareBtn();
+        }
+        
+        // Функция для сортировки игр (выбранные вверху)
+        function sortGames() {
+            const container = document.getElementById('gamesContainer');
+            if (!container) return;
+            
+            const gameItems = Array.from(container.querySelectorAll('.game-item'));
+            
+            gameItems.sort((a, b) => {
+                const aChecked = a.querySelector('input[type="checkbox"]').checked;
+                const bChecked = b.querySelector('input[type="checkbox"]').checked;
+                
+                if (aChecked && !bChecked) return -1;
+                if (!aChecked && bChecked) return 1;
+                
+                const aNum = parseInt(a.querySelector('.game-number').textContent);
+                const bNum = parseInt(b.querySelector('.game-number').textContent);
+                return aNum - bNum;
+            });
+            
+            gameItems.forEach(item => {
+                container.appendChild(item);
+            });
+        }
+        
+        // Отправка формы
+        async function submitForm() {
+            if (GB <= 0) {
+                await showAlert('Выберите объем вашей памяти консоли!', '&#9888; Внимание');
+                return false;
+            }
+            
+            const selectedGamesStr = document.getElementById('formG').value;
+            if (!selectedGamesStr) {
+                await showAlert('Выберите игры!', '&#9888; Внимание');
+                return false;
+            }
+            
+            if (GB < ALLGB) {
+                await showAlert('Превышен объем игр, измените список!', '&#10060; Превышение лимита');
+                return false;
+            }
+            
+            document.getElementById('formH').value = GB;
+            document.getElementById('mainForm').submit();
+            return true;
+        }
+        
+        // Поделиться
+        async function share() {
+            const gamesStr = document.getElementById('formG').value;
+            
+            if (!gamesStr) {
+                await showAlert('Сначала выберите игры!', '&#9888; Внимание');
+                return false;
+            }
+            showAlert('Список игр скопирован, теперь можно вставить в сообщение', '&#9989; Готово');
+            const tempInput = document.createElement('textarea');
+            tempInput.value = gamesStr;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'ИГРЫ PS4',
+                        text: document.getElementById('ags').textContent + ' игр, ' + 
+                              Math.trunc(ALLGB) + '/' + GB + ' ГБ',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Ошибка при использовании Web Share API:', err);
+                }
+            }
+            return false;
+        }
+        
+        // Функции для поиска игр
+        function searchGames() {
+            const searchInput = document.getElementById('gameSearch');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const clearBtn = document.getElementById('clearSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            if (searchTerm.length > 0) {
+                clearBtn.style.display = 'block';
+                if (gameControls) {
+                    gameControls.style.display = 'none';
+                }
+            } else {
+                clearBtn.style.display = 'none';
+                if (gameControls) {
+                    gameControls.style.display = 'flex';
+                }
+            }
+            
+            const gameItems = document.querySelectorAll('.game-item');
+            let foundCount = 0;
+            
+            gameItems.forEach(item => {
+                const gameTitle = item.querySelector('.game-title').textContent.toLowerCase();
+                const gameDescription = item.querySelector('.game-title').textContent.toLowerCase();
+                
+                if (gameTitle.includes(searchTerm) || gameDescription.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    foundCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            if (searchTerm.length > 0) {
+                document.getElementById('ags').textContent = foundCount;
+            } else {
+                updateTextArea();
+            }
+        }
+        
+        function clearSearch() {
+            const searchInput = document.getElementById('gameSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            searchInput.value = '';
+            searchInput.focus();
+            
+            if (gameControls) {
+                gameControls.style.display = 'flex';
+            }
+            
+            searchGames();
+        }
+        
+        function onSearchFocus() {
+            const gameControls = document.querySelector('.game-controls');
+            if (gameControls) {
+                gameControls.style.display = 'none';
+            }
+            
+            const searchInput = document.getElementById('gameSearch');
+            const clearBtn = document.getElementById('clearSearch');
+            if (searchInput.value.length === 0) {
+                clearBtn.style.display = 'none';
+            }
+        }
+        
+        function onSearchBlur() {
+            const searchInput = document.getElementById('gameSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            if (searchInput.value.length === 0) {
+                setTimeout(() => {
+                    if (gameControls) {
+                        gameControls.style.display = 'flex';
+                    }
+                }, 200);
+            }
+        }
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedHddOption = document.querySelector('.hdd-option.selected');
+            if (selectedHddOption) {
+                const radio = selectedHddOption.querySelector('input[type="radio"]');
+                selectedHDD = parseFloat(radio ? radio.value : '0');
+                updateHdd();
+            }
+            
+            document.querySelectorAll('#gamesContainer input[type="checkbox"]:checked').forEach(cb => {
+                selectedGames.add(cb.value);
+            });
+            
+            updateTextArea();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedGamesParam = urlParams.get('g');
+            if (selectedGamesParam && selectedGamesParam.length > 0) {
+                showShareBtn();
+                setTimeout(() => {
+                    sortGames();
+                }, 300);
+            }
+            
+            if (selectedHDD > 0) {
+                setTimeout(() => {
+                    toggleHDDSection();
+                }, 500);
+            }
+            
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', searchGames);
+            }
+            
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            
+      
+             
+        });
+    </script>
+</body>
+</html>
