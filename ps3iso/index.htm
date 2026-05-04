@@ -6712,8 +6712,8 @@
 '1700': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Cyberpunk 2077", "Days Gone", "Dead Cells", "Detroit Become Human", "FIFA 23", "Far Cry 5", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "God of War Ragnarok", "Guns Gore and Cannoli", "Hogwarts Legacy", "Horizon Zero Dawn", "Horizon запретный запад", "Injustice 2", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Exodus", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Sega Mega Drive Classics", "Assetto Corsa - Competizione", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "NHL 20", "Naruto Shippuden Ultimate Trilogy", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Red Dead Redemption 2", "Biomutant", "Civilization 7", "Call of Duty Ghosts",  "The Forest", "Assassin's Creed Rogue", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "S.T.A.L.K.E.R. - Clear Sky", "S.T.A.L.K.E.R. - Shadow of Chernobyl", "Star Wars Jedi Survivor", "Stray", "Subnautica", "Teenage Mutant Ninja Turtles", "The Last of Us Part II", "The Last of Us Remastered", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 4", "Unravel Two", "Watch Dogs Complete Edition"],
 '820': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Injustice 2", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Days Gone", "Dead Cells", "UFC 4", "Far Cry 5", "Garfield Kart", "GTA V", "Goat Simulator", "God of War", "FIFA 23", "Mortal Kombat 11", "Guns Gore and Cannoli", "Hogwarts Legacy", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft Dungeons", "Minecraft", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Naruto Shippuden Ultimate Trilogy", "The Sims 4", "Red Dead Redemption", "Rise of the Tomb Raider","Sonic Colors", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Subnautica", "The Witcher 3 Wild Hunt", "Teenage Mutant Ninja Turtles", "Unravel Two"]
         };
-        var GB = 0;
-        var ALLGB = 0;
+        var MB = 0;
+        var ALLMB = 0;
         var selectedHDD = 0;
         var selectedGames = new Set();
         
@@ -6843,13 +6843,13 @@
                 return;
             }
             
-            if (GB === 0) return;
+            if (MB === 0) return;
             
             // Сначала снимаем все выделения
             checkall(0);
             
             // Получаем рекомендованные игры для выбранного HDD
-            const hddKey = GB.toString();
+            const hddKey = MB.toString();
             const recommendedList = recommendedGames[hddKey] || [];
             
             // Если нет рекомендованных игр для этого объема
@@ -6919,30 +6919,30 @@
         
         // Обновление текстового поля и подсчетов
         function updateTextArea() {
-            ALLGB = 0;
+            ALLMB = 0;
             const allVals = [];
             
             document.querySelectorAll('#gamesContainer input[type="checkbox"]:checked').forEach(function(cb) {
                 const sizeElement = cb.closest('.game-item').querySelector('.game-size');
-                const sizeText = sizeElement.textContent.replace(' GB', '');
-                ALLGB += parseFloat(sizeText);
+                const sizeText = sizeElement.textContent.replace(' MB', '');
+                ALLMB += parseFloat(sizeText);
                 allVals.push(parseInt(cb.value));
             });
             
             document.getElementById('formG').value = allVals.join(',');
             document.getElementById('ags').textContent = allVals.length;
-            updateGB();
+            updateMB();
         }
         
-        function updateGB() {
-            document.getElementById('gb2').textContent = GB;
-            document.getElementById('gb1').textContent = Math.trunc(ALLGB);
+        function updateMB() {
+            document.getElementById('gb2').textContent = MB;
+            document.getElementById('gb1').textContent = Math.trunc(ALLMB);
             
             const footer = document.getElementById('footerPanel');
             const progressBar = document.getElementById('progressBar');
             
-            if (GB > 0) {
-                const percentage = Math.min((ALLGB / GB) * 100, 100);
+            if (MB > 0) {
+                const percentage = Math.min((ALLMB / MB) * 100, 100);
                 progressBar.style.width = percentage + '%';
                 
                 if (percentage > 80) {
@@ -6952,23 +6952,23 @@
                 }
             }
             
-            if (GB < ALLGB) {
+            if (MB < ALLMB) {
                 footer.classList.add('overlimit');
                 progressBar.classList.add('over');
             } else {
                 footer.classList.remove('overlimit');
-                if (ALLGB / GB <= 0.8) {
+                if (ALLMB / MB <= 0.8) {
                     progressBar.classList.remove('over');
                 }
             }
         }
         
         function updateHdd() {
-            GB = selectedHDD;
-            if (GB > 0) {
+            MB = selectedHDD;
+            if (MB > 0) {
                 document.getElementById('gamesSection').style.display = 'block';
             }
-            updateGB();
+            updateMB();
         }
         
         // Выбор HDD
@@ -7037,7 +7037,7 @@
         
         // Отправка формы
         async function submitForm() {
-            if (GB <= 0) {
+            if (MB <= 0) {
                 await showAlert('Выберите объем вашей памяти консоли!', '&#9888; Внимание');
                 return false;
             }
@@ -7048,12 +7048,12 @@
                 return false;
             }
             
-            if (GB < ALLGB) {
+            if (MB < ALLMB) {
                 await showAlert('Превышен объем игр, измените список!', '&#10060; Превышение лимита');
                 return false;
             }
             
-            document.getElementById('formH').value = GB;
+            document.getElementById('formH').value = MB;
             document.getElementById('mainForm').submit();
             return true;
         }
@@ -7079,7 +7079,7 @@
                     await navigator.share({
                         title: 'ИГРЫ PS3',
                         text: document.getElementById('ags').textContent + ' игр, ' + 
-                              Math.trunc(ALLGB) + '/' + GB + ' ГБ',
+                              Math.trunc(ALLMB) + '/' + MB + ' МБ',
                         url: window.location.href
                     });
                 } catch (err) {
