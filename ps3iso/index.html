@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <title>Выбор игр PS4</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a href="http://www.psx23.github.io/ps3iso/">Выбор игр для установки</a></h1>
+        </div>
+        
+        <div class="section" id="hddSection">
+            <div class="section-header" onclick="toggleHDDSection()">
+                <h2>&#128192; Объём памяти консоли</h2>
+                <button class="toggle-btn" id="hddToggle">&#8722;</button>
+            </div>
+            <div class="hdd-grid" id="hddContainer">
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;380&#39;)">
+                    <div class="hdd-name">500ГБ</div>
+                    <div class="hdd-size">380 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-1" value="380">
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;600&#39;)">
+                    <div class="hdd-name">750ГБ</div>
+                    <div class="hdd-size">600 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-2" value="600">
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;645&#39;)">
+                    <div class="hdd-name">825ГБ</div>
+                    <div class="hdd-size">645 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-3" value="645">
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;820&#39;)">
+                    <div class="hdd-name">1ТБ</div>
+                    <div class="hdd-size">820 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-4" value="820">
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;1700&#39;)">
+                    <div class="hdd-name">2ТБ</div>
+                    <div class="hdd-size">1700 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-5" value="1700">
+                </div>
+                
+                <div class="hdd-option " onclick="selectHDD(this, &#39;3400&#39;)">
+                    <div class="hdd-name">4ТБ</div>
+                    <div class="hdd-size">3400 ГБ доступно</div>
+                    <input type="radio" name="h" id="h-6" value="3400">
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="section" id="gamesSection" style="display:none">
+            <div class="section-header">
+                <h2>&#127918; Выберите игры</h2>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="gameSearch" class="search-input" placeholder="Поиск игры, описание или жанр" onfocus="onSearchFocus()" onblur="onSearchBlur()">
+                <button class="clear-search" id="clearSearch" onclick="clearSearch()">&#215;</button>
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn secondary" onclick="handleResetGames()">
+                    &#10007; Сброс
+                </button>
+                <button class="btn accent" onclick="handleAutoSelect()">
+                    &#9733; Авто
+                </button>
+            </div>
+            
+            <div class="games-container" id="gamesContainer">
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;1&#39;);">
+                    <div class="game-number">1</div>
+                    <div class="game-header">
+                        <div class="game-title">A Way Out (2 джойстика)</div>
+                        <div class="game-size">17.24 GB</div>
+                    </div>
+                    <div class="game-description">Кооперативный приключенческий экшен, где двое заключенных пытаются сбежать из тюрьмы. Требует двух игроков.<br><b> кооператив, экшен, приключение, драка, тюрьма, побег, два игрока</b></div>
+                    <input type="checkbox" value="1" id="g-1">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;2&#39;);">
+                    <div class="game-number">2</div>
+                    <div class="game-header">
+                        <div class="game-title">Air Missions</div>
+                        <div class="game-size">1.36 GB</div>
+                    </div>
+                    <div class="game-description">Авиасимулятор с воздушными боями и миссиями в современной авиации.<br><b> гонки, симулятор, самолеты, воздушные бои, авиация, летчик, небо</b></div>
+                    <input type="checkbox" value="2" id="g-2">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;3&#39;);">
+                    <div class="game-number">3</div>
+                    <div class="game-header">
+                        <div class="game-title">Alan Wake Remastered</div>
+                        <div class="game-size">31.04 GB</div>
+                    </div>
+                    <div class="game-description">Психологический хоррор от создателей Control, писатель ищет пропавшую жену в туманном городке.<br><b> хоррор, стрелялка, психологический, писатель, поиск, жена, туман, страшный</b></div>
+                    <input type="checkbox" value="3" id="g-3">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;4&#39;);">
+                    <div class="game-number">4</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed IV Black Flag</div>
+                        <div class="game-size">17.21 GB</div>
+                    </div>
+                    <div class="game-description">Пиратское приключение в Карибском море с морскими битвами и ассасинами.<br><b> приключение, экшен, пираты, морские битвы, ассасины, Карибское море, корабли</b></div>
+                    <input type="checkbox" value="4" id="g-4">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;5&#39;);">
+                    <div class="game-number">5</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Mirage</div>
+                        <div class="game-size">29.43 GB</div>
+                    </div>
+                    <div class="game-description">Возвращение к истокам серии в Багдаде IX века, фокус на стелс и паркур.<br><b> стелс, экшен, приключение, Багдад, паркур, скрытность, ассасины, исторический</b></div>
+                    <input type="checkbox" value="5" id="g-5">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;6&#39;);">
+                    <div class="game-number">6</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Odyssey</div>
+                        <div class="game-size">102.50 GB</div>
+                    </div>
+                    <div class="game-description">Эпическая RPG в Древней Греции с выбором протагониста и масштабными сражениями.<br><b> RPG, приключение, экшен, Древняя Греция, выбор персонажа, сражения, открытый мир</b></div>
+                    <input type="checkbox" value="6" id="g-6">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;7&#39;);">
+                    <div class="game-number">7</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Rogue</div>
+                        <div class="game-size">8.60 GB</div>
+                    </div>
+                    <div class="game-description">История ассасина, перешедшего на сторону тамплиеров в Северной Америке.<br><b> экшен, приключение, ассасины, тамплиеры, Северная Америка, предательство, исторический</b></div>
+                    <input type="checkbox" value="7" id="g-7">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;8&#39;);">
+                    <div class="game-number">8</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Syndicate</div>
+                        <div class="game-size">68.64 GB</div>
+                    </div>
+                    <div class="game-description">Викторианский Лондон, близнецы-ассасины и борьба с тамплиерами.<br><b> экшен, приключение, Лондон, викторианская эпоха, близнецы, стелс, исторический</b></div>
+                    <input type="checkbox" value="8" id="g-8">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;9&#39;);">
+                    <div class="game-number">9</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed The Ezio Collection</div>
+                        <div class="game-size">38.81 GB</div>
+                    </div>
+                    <div class="game-description">Трилогии о легендарном ассасине Эцио Аудиторе да Фиренце.<br><b> экшен, приключение, трилогия, Эцио, ассасины, исторический, сборник</b></div>
+                    <input type="checkbox" value="9" id="g-9">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;10&#39;);">
+                    <div class="game-number">10</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Unity</div>
+                        <div class="game-size">53.08 GB</div>
+                    </div>
+                    <div class="game-description">Французская революция в Париже, кооперативные миссии и улучшенный паркур.<br><b> экшен, приключение, Франция, революция, кооператив, паркур, Париж, исторический</b></div>
+                    <input type="checkbox" value="10" id="g-10">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;11&#39;);">
+                    <div class="game-number">11</div>
+                    <div class="game-header">
+                        <div class="game-title">Assassin's Creed Valhalla</div>
+                        <div class="game-size">123.65 GB</div>
+                    </div>
+                    <div class="game-description">Эпическое приключение викингов в Англии с поселениями и рейдами.<br><b> RPG, экшен, викинги, Англия, поселения, рейды, открытый мир, исторический</b></div>
+                    <input type="checkbox" value="11" id="g-11">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;12&#39;);">
+                    <div class="game-number">12</div>
+                    <div class="game-header">
+                        <div class="game-title">Assetto Corsa - Competizione</div>
+                        <div class="game-size">20.28 GB</div>
+                    </div>
+                    <div class="game-description">Реалистичный симулятор гонок GT с лицензированными автомобилями и треками.<br><b> гонки, симулятор, реалистичный, автомобили, треки, спортивный, машины</b></div>
+                    <input type="checkbox" value="12" id="g-12">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;13&#39;);">
+                    <div class="game-number">13</div>
+                    <div class="game-header">
+                        <div class="game-title">Atomic Heart Premium Edition</div>
+                        <div class="game-size">38.32 GB</div>
+                    </div>
+                    <div class="game-description">Биопанковый шутер в альтернативном СССР с роботами и пси-способностями.<br><b> шутер, биопанк, СССР, роботы, пси-способности, экшен, научная фантастика</b></div>
+                    <input type="checkbox" value="13" id="g-13">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;14&#39;);">
+                    <div class="game-number">14</div>
+                    <div class="game-header">
+                        <div class="game-title">Batman Arkham Knight</div>
+                        <div class="game-size">59.78 GB</div>
+                    </div>
+                    <div class="game-description">Финальная часть трилогии о Бэтмене с битвой за Готэм и Бэтмобилем.<br><b> экшен, приключение, Бэтмен, Готэм, Бэтмобиль, супергерой, драка, открытый мир</b></div>
+                    <input type="checkbox" value="14" id="g-14">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;15&#39;);">
+                    <div class="game-number">15</div>
+                    <div class="game-header">
+                        <div class="game-title">Battlefield 4</div>
+                        <div class="game-size">36.52 GB</div>
+                    </div>
+                    <div class="game-description">Масштабные военные сражения с разрушаемостью окружения и техникой.<br><b> шутер, военный, мультиплеер, разрушаемость, техника, сражения, онлайн, экшен</b></div>
+                    <input type="checkbox" value="15" id="g-15">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;16&#39;);">
+                    <div class="game-number">16</div>
+                    <div class="game-header">
+                        <div class="game-title">Battlefield 5</div>
+                        <div class="game-size">34.36 GB</div>
+                    </div>
+                    <div class="game-description">Вторая мировая война, новые режимы и улучшенная графика.<br><b> шутер, вторая мировая война, мультиплеер, разрушаемость, исторический, экшен, онлайн</b></div>
+                    <input type="checkbox" value="16" id="g-16">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;17&#39;);">
+                    <div class="game-number">17</div>
+                    <div class="game-header">
+                        <div class="game-title">Beach Buggy Racing</div>
+                        <div class="game-size">0.29 GB</div>
+                    </div>
+                    <div class="game-description">Веселая аркадная гонка на пляже с power-up'ами и мультяшной графикой.<br><b> гонки, аркада, веселый, пляж, power-up, мультяшный, семейный, картинги</b></div>
+                    <input type="checkbox" value="17" id="g-17">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;18&#39;);">
+                    <div class="game-number">18</div>
+                    <div class="game-header">
+                        <div class="game-title">Beyond Two Souls</div>
+                        <div class="game-size">42.14 GB</div>
+                    </div>
+                    <div class="game-description">Интерактивная драма о девушке со сверхъестественными способностями.<br><b> приключение, драма, интерактивный, сверхъестественное, эмоциональный, киноигра, история</b></div>
+                    <input type="checkbox" value="18" id="g-18">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;19&#39;);">
+                    <div class="game-number">19</div>
+                    <div class="game-header">
+                        <div class="game-title">BioShock The Collection</div>
+                        <div class="game-size">23.68 GB</div>
+                    </div>
+                    <div class="game-description">Три культовых игры в подводном и воздушном городах с философским сюжетом.<br><b> шутер, RPG, философский, подводный город, воздушный город, научная фантастика, сборник</b></div>
+                    <input type="checkbox" value="19" id="g-19">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;20&#39;);">
+                    <div class="game-number">20</div>
+                    <div class="game-header">
+                        <div class="game-title">Biomutant</div>
+                        <div class="game-size">11.38 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптический action-RPG с мутировавшими животными и кастомизацией.<br><b> RPG, экшен, постапокалипсис, мутировавшие животные, кастомизация, открытый мир</b></div>
+                    <input type="checkbox" value="20" id="g-20">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;21&#39;);">
+                    <div class="game-number">21</div>
+                    <div class="game-header">
+                        <div class="game-title">Bloodborne</div>
+                        <div class="game-size">32.01 GB</div>
+                    </div>
+                    <div class="game-description">Мрачный готический action-RPG от создателей Dark Souls с быстрым боем.<br><b> RPG, экшен, хоррор, готика, сложный, боссы, мрачный, Dark Souls</b></div>
+                    <input type="checkbox" value="21" id="g-21">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;22&#39;);">
+                    <div class="game-number">22</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Advanced Warfare</div>
+                        <div class="game-size">48.38 GB</div>
+                    </div>
+                    <div class="game-description">Будущая война с экзоскелетами и продвинутым оружием.<br><b> шутер, экшен, будущее, экзоскелеты, война, футуристичный, мультиплеер</b></div>
+                    <input type="checkbox" value="22" id="g-22">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;23&#39;);">
+                    <div class="game-number">23</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty BO6 MW2 MW3</div>
+                        <div class="game-size">305.96 GB</div>
+                    </div>
+                    <div class="game-description">Коллекция современных военных шутеров с полным сюжетом.<br><b> шутер, военный, экшен, сборник, современный, кампания, мультиплеер</b></div>
+                    <input type="checkbox" value="23" id="g-23">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;24&#39;);">
+                    <div class="game-number">24</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Black Ops 6</div>
+                        <div class="game-size">103.84 GB</div>
+                    </div>
+                    <div class="game-description">Секретные операции Холодной войны и современные конфликты.<br><b> шутер, экшен, холодная война, шпионаж, современный, секретные операции, мультиплеер</b></div>
+                    <input type="checkbox" value="24" id="g-24">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;25&#39;);">
+                    <div class="game-number">25</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Black Ops Cold War</div>
+                        <div class="game-size">90.43 GB</div>
+                    </div>
+                    <div class="game-description">Шпионский триллер времен Холодной войны с выбором в сюжете.<br><b> шутер, экшен, холодная война, шпионаж, выбор в сюжете, триллер, мультиплеер</b></div>
+                    <input type="checkbox" value="25" id="g-25">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;26&#39;);">
+                    <div class="game-number">26</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Black Ops III</div>
+                        <div class="game-size">63.66 GB</div>
+                    </div>
+                    <div class="game-description">Киберпанк-будущее с кибернетическими улучшениями и зомби.<br><b> шутер, экшен, киберпанк, будущее, кибернетика, зомби, кооператив, мультиплеер</b></div>
+                    <input type="checkbox" value="26" id="g-26">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;27&#39;);">
+                    <div class="game-number">27</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Ghosts</div>
+                        <div class="game-size">33.07 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптический сюжет после катастрофы ODIN.<br><b> шутер, экшен, постапокалипсис, катастрофа, выживание, военный, мультиплеер</b></div>
+                    <input type="checkbox" value="27" id="g-27">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;28&#39;);">
+                    <div class="game-number">28</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Modern Warfare</div>
+                        <div class="game-size">75.34 GB</div>
+                    </div>
+                    <div class="game-description">Перезапуск классической трилогии с реалистичным боем.<br><b> шутер, военный, реалистичный, перезапуск, тактический, экшен, мультиплеер</b></div>
+                    <input type="checkbox" value="28" id="g-28">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;29&#39;);">
+                    <div class="game-number">29</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Modern Warfare 2&amp;3</div>
+                        <div class="game-size">218.93 GB</div>
+                    </div>
+                    <div class="game-description">Полная история капитана Прайса и Task Force 141.<br><b> шутер, военный, экшен, капитан Прайс, история, Task Force 141, мультиплеер</b></div>
+                    <input type="checkbox" value="29" id="g-29">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;30&#39;);">
+                    <div class="game-number">30</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty Vanguard</div>
+                        <div class="game-size">79.06 GB</div>
+                    </div>
+                    <div class="game-description">Вторая мировая война с разных фронтов и персонажами.<br><b> шутер, экшен, вторая мировая война, разные фронты, персонажи, исторический, мультиплеер</b></div>
+                    <input type="checkbox" value="30" id="g-30">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;31&#39;);">
+                    <div class="game-number">31</div>
+                    <div class="game-header">
+                        <div class="game-title">Call of Duty WWII</div>
+                        <div class="game-size">58.39 GB</div>
+                    </div>
+                    <div class="game-description">Возвращение к истокам серии в Нормандии и Европе.<br><b> шутер, экшен, вторая мировая война, Нормандия, Европа, исторический, мультиплеер</b></div>
+                    <input type="checkbox" value="31" id="g-31">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;32&#39;);">
+                    <div class="game-number">32</div>
+                    <div class="game-header">
+                        <div class="game-title">Civilization 6</div>
+                        <div class="game-size">13.49 GB</div>
+                    </div>
+                    <div class="game-description">Стратегия по построению величайшей империи в истории.<br><b> стратегия, пошаговая, строительство империи, история, дипломатия, тактическая</b></div>
+                    <input type="checkbox" value="32" id="g-32">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;33&#39;);">
+                    <div class="game-number">33</div>
+                    <div class="game-header">
+                        <div class="game-title">Civilization 7</div>
+                        <div class="game-size">11.12 GB</div>
+                    </div>
+                    <div class="game-description">Новая эра стратегии с улучшенной дипломатией и технологиями.<br><b> стратегия, пошаговая, империя, дипломатия, технологии, тактическая, новая</b></div>
+                    <input type="checkbox" value="33" id="g-33">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;34&#39;);">
+                    <div class="game-number">34</div>
+                    <div class="game-header">
+                        <div class="game-title">Contra Collection</div>
+                        <div class="game-size">1.30 GB</div>
+                    </div>
+                    <div class="game-description">Классические аркадные шутеры из 80-90-х годов.<br><b> шутер, аркада, классика, 80-е, 90-е, ретро, платформер, кооператив</b></div>
+                    <input type="checkbox" value="34" id="g-34">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;35&#39;);">
+                    <div class="game-number">35</div>
+                    <div class="game-header">
+                        <div class="game-title">Crash Team Racing Nitro Fueled (CTR)</div>
+                        <div class="game-size">18.20 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк культовой гоночной игры с персонажами Crash Bandicoot.<br><b> гонки, аркада, ремейк, Crash Bandicoot, картинги, веселый, семейный</b></div>
+                    <input type="checkbox" value="35" id="g-35">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;36&#39;);">
+                    <div class="game-number">36</div>
+                    <div class="game-header">
+                        <div class="game-title">Crysis 3 Remastered</div>
+                        <div class="game-size">17.23 GB</div>
+                    </div>
+                    <div class="game-description">Нано-костюм, джунгли Нью-Йорка и высокотехнологичный бой.<br><b> шутер, экшен, нано-костюм, джунгли, Нью-Йорк, футуристичный, графика</b></div>
+                    <input type="checkbox" value="36" id="g-36">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;37&#39;);">
+                    <div class="game-number">37</div>
+                    <div class="game-header">
+                        <div class="game-title">Cuphead</div>
+                        <div class="game-size">3.89 GB</div>
+                    </div>
+                    <div class="game-description">Босс-раш в стиле 30-х годов с ручной анимацией и джазовой музыкой.<br><b> платформер, босс-раш, 30-е годы, ручная анимация, джаз, сложный, арт-деко</b></div>
+                    <input type="checkbox" value="37" id="g-37">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;38&#39;);">
+                    <div class="game-number">38</div>
+                    <div class="game-header">
+                        <div class="game-title">Cyberpunk 2077</div>
+                        <div class="game-size">72.09 GB</div>
+                    </div>
+                    <div class="game-description">Открытый мир Найт-Сити, кибернетика и нелинейный сюжет.<br><b> RPG, шутер, открытый мир, киберпанк, Найт-Сити, кибернетика, нелинейный</b></div>
+                    <input type="checkbox" value="38" id="g-38">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;39&#39;);">
+                    <div class="game-number">39</div>
+                    <div class="game-header">
+                        <div class="game-title">Dark Souls 3</div>
+                        <div class="game-size">23.79 GB</div>
+                    </div>
+                    <div class="game-description">Мрачное фэнтези с сложными боями и атмосферой отчаяния.<br><b> RPG, экшен, фэнтези, сложный, боссы, мрачный, атмосферный, мечи</b></div>
+                    <input type="checkbox" value="39" id="g-39">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;40&#39;);">
+                    <div class="game-number">40</div>
+                    <div class="game-header">
+                        <div class="game-title">Days Gone</div>
+                        <div class="game-size">37.44 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалипсис с зомби-байкерами и динамичными ордами.<br><b> экшен, постапокалипсис, зомби, байкеры, орды, выживание, открытый мир</b></div>
+                    <input type="checkbox" value="40" id="g-40">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;41&#39;);">
+                    <div class="game-number">41</div>
+                    <div class="game-header">
+                        <div class="game-title">Dead Cells</div>
+                        <div class="game-size">1.37 GB</div>
+                    </div>
+                    <div class="game-description">Roguelike-metroidvania с пиксельной графикой и плавным боем.<br><b> платформер, roguelike, метроидвания, пиксельная графика, бой, сложный</b></div>
+                    <input type="checkbox" value="41" id="g-41">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;42&#39;);">
+                    <div class="game-number">42</div>
+                    <div class="game-header">
+                        <div class="game-title">Death Stranding</div>
+                        <div class="game-size">48.82 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптическая доставка грузов от Хидео Кодзимы.<br><b> приключение, постапокалипсис, доставка, ходьба, атмосферный, Кодзима, странный</b></div>
+                    <input type="checkbox" value="42" id="g-42">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;43&#39;);">
+                    <div class="game-number">43</div>
+                    <div class="game-header">
+                        <div class="game-title">Detroit Become Human</div>
+                        <div class="game-size">42.77 GB</div>
+                    </div>
+                    <div class="game-description">Интерактивная драма об андроидах, обретающих сознание.<br><b> приключение, драма, интерактивный, андроиды, сознание, выбор, будущее</b></div>
+                    <input type="checkbox" value="43" id="g-43">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;44&#39;);">
+                    <div class="game-number">44</div>
+                    <div class="game-header">
+                        <div class="game-title">Devil May Cry 5</div>
+                        <div class="game-size">42.45 GB</div>
+                    </div>
+                    <div class="game-description">Стильный слэшер с Данте и Неро против демонов.<br><b> экшен, слэшер, Данте, демоны, стильный, комбо, мечи, стрелялка</b></div>
+                    <input type="checkbox" value="44" id="g-44">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;45&#39;);">
+                    <div class="game-number">45</div>
+                    <div class="game-header">
+                        <div class="game-title">Diablo III Eternal Collection</div>
+                        <div class="game-size">28.95 GB</div>
+                    </div>
+                    <div class="game-description">Хак-н-слэш в мире Санктуария с бесконечным лутом.<br><b> RPG, хак-н-слэш, лутание, демоны, фэнтези, кооператив, подземелья</b></div>
+                    <input type="checkbox" value="45" id="g-45">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;46&#39;);">
+                    <div class="game-number">46</div>
+                    <div class="game-header">
+                        <div class="game-title">Dishonored 2</div>
+                        <div class="game-size">51.02 GB</div>
+                    </div>
+                    <div class="game-description">Стелс-экшен с магией и выбором пути в карнавальном городе.<br><b> стелс, экшен, магия, выбор пути, карнавальный город, скрытность, убийства</b></div>
+                    <input type="checkbox" value="46" id="g-46">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;47&#39;);">
+                    <div class="game-number">47</div>
+                    <div class="game-header">
+                        <div class="game-title">Driveclub</div>
+                        <div class="game-size">35.46 GB</div>
+                    </div>
+                    <div class="game-description">Социальные гонки с красивой графикой и динамичной погодой.<br><b> гонки, социальные, красивая графика, погода, динамичный, автомобили, симулятор</b></div>
+                    <input type="checkbox" value="47" id="g-47">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;48&#39;);">
+                    <div class="game-number">48</div>
+                    <div class="game-header">
+                        <div class="game-title">EA Sports FC 24</div>
+                        <div class="game-size">48.59 GB</div>
+                    </div>
+                    <div class="game-description">Футбольный симулятор с реалистичным геймплеем и лицензиями.<br><b> спорт, футбол, симулятор, реалистичный, лицензии, мультиплеер, команды</b></div>
+                    <input type="checkbox" value="48" id="g-48">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;49&#39;);">
+                    <div class="game-number">49</div>
+                    <div class="game-header">
+                        <div class="game-title">EA Sports FC 25</div>
+                        <div class="game-size">49.45 GB</div>
+                    </div>
+                    <div class="game-description">Новейший футбольный симулятор с улучшенной физикой.<br><b> спорт, футбол, симулятор, физика, улучшенный, команды, мультиплеер</b></div>
+                    <input type="checkbox" value="49" id="g-49">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;50&#39;);">
+                    <div class="game-number">50</div>
+                    <div class="game-header">
+                        <div class="game-title">EA Sports FC 26</div>
+                        <div class="game-size">83.01 GB</div>
+                    </div>
+                    <div class="game-description">Передовой футбольный опыт с ИИ и анимациями.<br><b> спорт, футбол, симулятор, ИИ, анимации, передовой, команды, реализм</b></div>
+                    <input type="checkbox" value="50" id="g-50">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;51&#39;);">
+                    <div class="game-number">51</div>
+                    <div class="game-header">
+                        <div class="game-title">Edge Of Eternity</div>
+                        <div class="game-size">7.24 GB</div>
+                    </div>
+                    <div class="game-description">Японская RPG с пошаговыми боями и эпическим сюжетом.<br><b> RPG, японская, пошаговые бои, эпический сюжет, фэнтези, приключение</b></div>
+                    <input type="checkbox" value="51" id="g-51">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;52&#39;);">
+                    <div class="game-number">52</div>
+                    <div class="game-header">
+                        <div class="game-title">Elden Ring</div>
+                        <div class="game-size">40.56 GB</div>
+                    </div>
+                    <div class="game-description">Открытый мир фэнтези от создателей Dark Souls и Джорджа Мартина.<br><b> RPG, экшен, открытый мир, фэнтези, Dark Souls, сложный, боссы, исследование</b></div>
+                    <input type="checkbox" value="52" id="g-52">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;53&#39;);">
+                    <div class="game-number">53</div>
+                    <div class="game-header">
+                        <div class="game-title">F1 2021</div>
+                        <div class="game-size">44.11 GB</div>
+                    </div>
+                    <div class="game-description">Официальный симулятор Формулы 1 с карьерным режимом.<br><b> гонки, симулятор, Формула 1, карьера, реалистичный, машины, треки</b></div>
+                    <input type="checkbox" value="53" id="g-53">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;54&#39;);">
+                    <div class="game-number">54</div>
+                    <div class="game-header">
+                        <div class="game-title">FIFA 21</div>
+                        <div class="game-size">44.38 GB</div>
+                    </div>
+                    <div class="game-description">Футбольный симулятор с улучшенным движком и механиками.<br><b> спорт, футбол, симулятор, движок, механики, команды, мультиплеер</b></div>
+                    <input type="checkbox" value="54" id="g-54">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;55&#39;);">
+                    <div class="game-number">55</div>
+                    <div class="game-header">
+                        <div class="game-title">FIFA 22</div>
+                        <div class="game-size">40.46 GB</div>
+                    </div>
+                    <div class="game-description">Реалистичный футбол с технологией гипердвижения.<br><b> спорт, футбол, симулятор, гипердвижение, реалистичный, команды, графика</b></div>
+                    <input type="checkbox" value="55" id="g-55">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;56&#39;);">
+                    <div class="game-number">56</div>
+                    <div class="game-header">
+                        <div class="game-title">FIFA 23</div>
+                        <div class="game-size">54.66 GB</div>
+                    </div>
+                    <div class="game-description">Финальная часть FIFA с улучшенной графикой и геймплеем.<br><b> спорт, футбол, симулятор, финальная часть, графика, геймплей, команды</b></div>
+                    <input type="checkbox" value="56" id="g-56">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;57&#39;);">
+                    <div class="game-number">57</div>
+                    <div class="game-header">
+                        <div class="game-title">Fallout 4</div>
+                        <div class="game-size">53.75 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптический RPG с строительством поселений и выбором.<br><b> RPG, постапокалипсис, открытый мир, строительство поселений, выбор, выживание</b></div>
+                    <input type="checkbox" value="57" id="g-57">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;58&#39;);">
+                    <div class="game-number">58</div>
+                    <div class="game-header">
+                        <div class="game-title">Far Cry 5</div>
+                        <div class="game-size">28.13 GB</div>
+                    </div>
+                    <div class="game-description">Открытый мир Монтаны, сектанты и свобода действий.<br><b> шутер, экшен, открытый мир, Монтана, сектанты, свобода, оружие, природа</b></div>
+                    <input type="checkbox" value="58" id="g-58">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;59&#39;);">
+                    <div class="game-number">59</div>
+                    <div class="game-header">
+                        <div class="game-title">Far Cry 6</div>
+                        <div class="game-size">86.85 GB</div>
+                    </div>
+                    <div class="game-description">Тропический остров Яра, революция и харизматичный диктатор.<br><b> шутер, экшен, открытый мир, Яра, революция, диктатор, тропики, оружие</b></div>
+                    <input type="checkbox" value="59" id="g-59">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;60&#39;);">
+                    <div class="game-number">60</div>
+                    <div class="game-header">
+                        <div class="game-title">Final Fantasy VII Remake</div>
+                        <div class="game-size">92.14 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк культовой JRPG с активными боями и детализированным Мидгаром.<br><b> RPG, приключение, ремейк, JRPG, активные бои, Мидгар, фэнтези</b></div>
+                    <input type="checkbox" value="60" id="g-60">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;61&#39;);">
+                    <div class="game-number">61</div>
+                    <div class="game-header">
+                        <div class="game-title">Final Fantasy X</div>
+                        <div class="game-size">15.37 GB</div>
+                    </div>
+                    <div class="game-description">Классическая JRPG о путешествии через Спиру и грех.<br><b> RPG, приключение, классика, JRPG, путешествие, Спира, фэнтези, пошаговый</b></div>
+                    <input type="checkbox" value="61" id="g-61">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;62&#39;);">
+                    <div class="game-number">62</div>
+                    <div class="game-header">
+                        <div class="game-title">Final Fantasy XV</div>
+                        <div class="game-size">44.12 GB</div>
+                    </div>
+                    <div class="game-description">Дорожное путешествие с принцем и его друзьями в открытом мире.<br><b> RPG, приключение, дорожное путешествие, открытый мир, друзья, фэнтези</b></div>
+                    <input type="checkbox" value="62" id="g-62">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;63&#39;);">
+                    <div class="game-number">63</div>
+                    <div class="game-header">
+                        <div class="game-title">Five Nights at Freddys Core Collection</div>
+                        <div class="game-size">3.66 GB</div>
+                    </div>
+                    <div class="game-description">Хоррор-выживание с аниматрониками в пиццерии.<br><b> хоррор, выживание, аниматроники, пиццерия, страшный, ночная смена</b></div>
+                    <input type="checkbox" value="63" id="g-63">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;64&#39;);">
+                    <div class="game-number">64</div>
+                    <div class="game-header">
+                        <div class="game-title">GTA V</div>
+                        <div class="game-size">54.09 GB</div>
+                    </div>
+                    <div class="game-description">Открытый мир Лос-Сантоса с тремя протагонистами и онлайном.<br><b> экшен, открытый мир, Лос-Сантос, три протагониста, онлайн, преступления, машины</b></div>
+                    <input type="checkbox" value="64" id="g-64">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;65&#39;);">
+                    <div class="game-number">65</div>
+                    <div class="game-header">
+                        <div class="game-title">Garfield Kart</div>
+                        <div class="game-size">1.89 GB</div>
+                    </div>
+                    <div class="game-description">Веселые гонки с персонажами комикса про Гарфилда.<br><b> гонки, аркада, веселый, Гарфилд, комикс, мультяшный, семейный, картинги</b></div>
+                    <input type="checkbox" value="65" id="g-65">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;66&#39;);">
+                    <div class="game-number">66</div>
+                    <div class="game-header">
+                        <div class="game-title">Ghost of Tsushima</div>
+                        <div class="game-size">52.83 GB</div>
+                    </div>
+                    <div class="game-description">Самурайское приключение на острове Цусима с красивой графикой.<br><b> экшен, приключение, самурай, Цусима, красивая графика, мечи, открытый мир</b></div>
+                    <input type="checkbox" value="66" id="g-66">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;67&#39;);">
+                    <div class="game-number">67</div>
+                    <div class="game-header">
+                        <div class="game-title">Ghostbusters</div>
+                        <div class="game-size">19.73 GB</div>
+                    </div>
+                    <div class="game-description">Охота на призраков по мотивам фильма с оригинальным актерским составом.<br><b> приключение, экшен, охота на призраков, комедия, фильм, оригинальный состав</b></div>
+                    <input type="checkbox" value="67" id="g-67">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;68&#39;);">
+                    <div class="game-number">68</div>
+                    <div class="game-header">
+                        <div class="game-title">Goat Simulator</div>
+                        <div class="game-size">1.07 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор козла с абсурдной физикой и хаосом.<br><b> симулятор, козел, абсурд, физика, хаос, веселый, песочница, глупый</b></div>
+                    <input type="checkbox" value="68" id="g-68">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;69&#39;);">
+                    <div class="game-number">69</div>
+                    <div class="game-header">
+                        <div class="game-title">God of War</div>
+                        <div class="game-size">46.89 GB</div>
+                    </div>
+                    <div class="game-description">Атмосферное приключение Кратоса и Атрея в скандинавской мифологии.<br><b> экшен, приключение, Кратос, скандинавская мифология, Атрей, топор, боги</b></div>
+                    <input type="checkbox" value="69" id="g-69">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;70&#39;);">
+                    <div class="game-number">70</div>
+                    <div class="game-header">
+                        <div class="game-title">God of War III Remastered</div>
+                        <div class="game-size">42.36 GB</div>
+                    </div>
+                    <div class="game-description">Эпичная битва с олимпийскими богами в HD.<br><b> экшен, приключение, Кратос, греческая мифология, боги, HD, эпичный</b></div>
+                    <input type="checkbox" value="70" id="g-70">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;71&#39;);">
+                    <div class="game-number">71</div>
+                    <div class="game-header">
+                        <div class="game-title">God of War Ragnarok</div>
+                        <div class="game-size">105.94 GB</div>
+                    </div>
+                    <div class="game-description">Продолжение истории Кратоса и Атрея перед Рагнарёком.<br><b> экшен, приключение, Кратос, Атрей, Рагнарёк, скандинавская мифология, боги</b></div>
+                    <input type="checkbox" value="71" id="g-71">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;72&#39;);">
+                    <div class="game-number">72</div>
+                    <div class="game-header">
+                        <div class="game-title">Gran Turismo Sport</div>
+                        <div class="game-size">43.65 GB</div>
+                    </div>
+                    <div class="game-description">Реалистичные гонки с акцентом на соревновательный онлайн.<br><b> гонки, симулятор, реалистичный, автомобили, онлайн, соревновательный, графика</b></div>
+                    <input type="checkbox" value="72" id="g-72">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;73&#39;);">
+                    <div class="game-number">73</div>
+                    <div class="game-header">
+                        <div class="game-title">Guns Gore and Cannoli</div>
+                        <div class="game-size">1.63 GB</div>
+                    </div>
+                    <div class="game-description">Шутер в стиле 20-х годов с зомби и юмором.<br><b> шутер, экшен, 20-е годы, зомби, юмор, мультяшный, кооператив</b></div>
+                    <input type="checkbox" value="73" id="g-73">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;74&#39;);">
+                    <div class="game-number">74</div>
+                    <div class="game-header">
+                        <div class="game-title">Hitman 2</div>
+                        <div class="game-size">31.88 GB</div>
+                    </div>
+                    <div class="game-description">Стелс-экшен с творческими способами устранения целей по всему миру.<br><b> стелс, экшен, убийства, творческий, цели, мир, скрытность, Агент 47</b></div>
+                    <input type="checkbox" value="74" id="g-74">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;75&#39;);">
+                    <div class="game-number">75</div>
+                    <div class="game-header">
+                        <div class="game-title">Hitman 3</div>
+                        <div class="game-size">69.53 GB</div>
+                    </div>
+                    <div class="game-description">Финальная часть трилогии об Агенте 47 с масштабными локациями.<br><b> стелс, экшен, убийства, финальная часть, Агент 47, локации, скрытность</b></div>
+                    <input type="checkbox" value="75" id="g-75">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;76&#39;);">
+                    <div class="game-number">76</div>
+                    <div class="game-header">
+                        <div class="game-title">Hogwarts Legacy</div>
+                        <div class="game-size">26.80 GB</div>
+                    </div>
+                    <div class="game-description">Приключение в Хогвартсе за 100 лет до событий книг.<br><b> RPG, приключение, Хогвартс, магия, 100 лет до книг, волшебство, открытый мир</b></div>
+                    <input type="checkbox" value="76" id="g-76">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;77&#39;);">
+                    <div class="game-number">77</div>
+                    <div class="game-header">
+                        <div class="game-title">Horizon Zero Dawn</div>
+                        <div class="game-size">47.56 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптический мир с роботами-животными и охотницей Элой.<br><b> экшен, RPG, постапокалипсис, роботы-животные, Элой, охота, открытый мир</b></div>
+                    <input type="checkbox" value="77" id="g-77">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;78&#39;);">
+                    <div class="game-number">78</div>
+                    <div class="game-header">
+                        <div class="game-title">Horizon запретный запад</div>
+                        <div class="game-size">90.25 GB</div>
+                    </div>
+                    <div class="game-description">Продолжение приключений Элой в новых землях с летающими роботами.<br><b> экшен, RPG, продолжение, Элой, летающие роботы, новые земли, открытый мир</b></div>
+                    <input type="checkbox" value="78" id="g-78">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;79&#39;);">
+                    <div class="game-number">79</div>
+                    <div class="game-header">
+                        <div class="game-title">Human Fall Flat</div>
+                        <div class="game-size">3.14 GB</div>
+                    </div>
+                    <div class="game-description">Физическая головоломка с мягкими персонажами и кооперативом.<br><b> головоломка, физика, мягкие персонажи, кооператив, веселый, пазлы, платформер</b></div>
+                    <input type="checkbox" value="79" id="g-79">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;80&#39;);">
+                    <div class="game-number">80</div>
+                    <div class="game-header">
+                        <div class="game-title">Injustice 2</div>
+                        <div class="game-size">27.58 GB</div>
+                    </div>
+                    <div class="game-description">Файтинг по вселенной DC с кастомизацией персонажей.<br><b> файтинг, драка, DC, супергерои, кастомизация, сюжет, битвы, комбо</b></div>
+                    <input type="checkbox" value="80" id="g-80">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;81&#39;);">
+                    <div class="game-number">81</div>
+                    <div class="game-header">
+                        <div class="game-title">It Takes Two</div>
+                        <div class="game-size">38.11 GB</div>
+                    </div>
+                    <div class="game-description">Кооперативное приключение для двух игроков о паре, превращенной в кукол.<br><b> приключение, кооператив, два игрока, куклы, платформер, головоломки, семейный</b></div>
+                    <input type="checkbox" value="81" id="g-81">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;82&#39;);">
+                    <div class="game-number">82</div>
+                    <div class="game-header">
+                        <div class="game-title">Jump Force</div>
+                        <div class="game-size">24.59 GB</div>
+                    </div>
+                    <div class="game-description">Файтинг с персонажами манги Shonen Jump в одном кроссовере.<br><b> файтинг, драка, манга, Shonen Jump, кроссовер, персонажи, аниме, суперсилы</b></div>
+                    <input type="checkbox" value="82" id="g-82">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;83&#39;);">
+                    <div class="game-number">83</div>
+                    <div class="game-header">
+                        <div class="game-title">Kena Bridge of Spirits</div>
+                        <div class="game-size">9.08 GB</div>
+                    </div>
+                    <div class="game-description">Приключенческая сказка с очаровательными рот и босс-рашами.<br><b> приключение, экшен, сказка, рот, босс-раш, красивая, магия, платформер</b></div>
+                    <input type="checkbox" value="83" id="g-83">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;84&#39;);">
+                    <div class="game-number">84</div>
+                    <div class="game-header">
+                        <div class="game-title">Killzone Shadow Fall</div>
+                        <div class="game-size">44.05 GB</div>
+                    </div>
+                    <div class="game-description">Шутер от первого лица с войной между Vektans и Helghast.<br><b> шутер, экшен, будущее, война, Vektans, Helghast, техника, научная фантастика</b></div>
+                    <input type="checkbox" value="84" id="g-84">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;85&#39;);">
+                    <div class="game-number">85</div>
+                    <div class="game-header">
+                        <div class="game-title">Lego Ninja Go Movie</div>
+                        <div class="game-size">17.96 GB</div>
+                    </div>
+                    <div class="game-description">Лего-приключение по мотивам мультсериала Ниндзяго.<br><b> приключение, экшен, Лего, Ниндзяго, мультсериал, семейный, головоломки</b></div>
+                    <input type="checkbox" value="85" id="g-85">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;86&#39;);">
+                    <div class="game-number">86</div>
+                    <div class="game-header">
+                        <div class="game-title">Liftoff Drone Racing</div>
+                        <div class="game-size">14.21 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор гонок на дронах с реалистичной физикой.<br><b> гонки, симулятор, дроны, реалистичная физика, полеты, трассы, соревнования</b></div>
+                    <input type="checkbox" value="86" id="g-86">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;87&#39;);">
+                    <div class="game-number">87</div>
+                    <div class="game-header">
+                        <div class="game-title">Little Nightmares</div>
+                        <div class="game-size">7.94 GB</div>
+                    </div>
+                    <div class="game-description">Атмосферный хоррор-платформер в жутком мире.<br><b> хоррор, платформер, атмосферный, жуткий, головоломки, побег, страшный</b></div>
+                    <input type="checkbox" value="87" id="g-87">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;88&#39;);">
+                    <div class="game-number">88</div>
+                    <div class="game-header">
+                        <div class="game-title">Mafia Definitive Edition</div>
+                        <div class="game-size">33.34 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк классической игры о мафии 30-х годов.<br><b> экшен, приключение, ремейк, мафия, 30-е годы, гангстеры, история</b></div>
+                    <input type="checkbox" value="88" id="g-88">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;89&#39;);">
+                    <div class="game-number">89</div>
+                    <div class="game-header">
+                        <div class="game-title">Marvel's Guardians of the Galaxy</div>
+                        <div class="game-size">51.14 GB</div>
+                    </div>
+                    <div class="game-description">Приключенческий экшен с Стражей Галактики и выбором диалогов.<br><b> экшен, приключение, Стражи Галактики, выбор диалогов, космос, юмор</b></div>
+                    <input type="checkbox" value="89" id="g-89">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;90&#39;);">
+                    <div class="game-number">90</div>
+                    <div class="game-header">
+                        <div class="game-title">Marvel's Spider-Man Miles Morales</div>
+                        <div class="game-size">50.56 GB</div>
+                    </div>
+                    <div class="game-description">Приключение Майлза Моралеса как нового Человека-Паука.<br><b> экшен, приключение, Человек-Паук, Майлз Моралес, Нью-Йорк, супергерой</b></div>
+                    <input type="checkbox" value="90" id="g-90">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;91&#39;);">
+                    <div class="game-number">91</div>
+                    <div class="game-header">
+                        <div class="game-title">Marvels Spider-Man</div>
+                        <div class="game-size">52.33 GB</div>
+                    </div>
+                    <div class="game-description">Захватывающий экшен с Питером Паркером в открытом Нью-Йорке.<br><b> экшен, приключение, Человек-Паук, Питер Паркер, Нью-Йорк, открытый мир</b></div>
+                    <input type="checkbox" value="91" id="g-91">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;92&#39;);">
+                    <div class="game-number">92</div>
+                    <div class="game-header">
+                        <div class="game-title">Marvel’s Avengers</div>
+                        <div class="game-size">79.28 GB</div>
+                    </div>
+                    <div class="game-description">Кооперативный экшен с супергероями Marvel и кастомизацией.<br><b> экшен, кооператив, супергерои, Marvel, кастомизация, команда, битвы</b></div>
+                    <input type="checkbox" value="92" id="g-92">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;93&#39;);">
+                    <div class="game-number">93</div>
+                    <div class="game-header">
+                        <div class="game-title">Mass Effect Legendary Edition</div>
+                        <div class="game-size">67.64 GB</div>
+                    </div>
+                    <div class="game-description">Ремастер трилогии космической RPG с выбором и последствиями.<br><b> RPG, экшен, космос, ремастер, трилогия, выбор, последствия, шутер</b></div>
+                    <input type="checkbox" value="93" id="g-93">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;94&#39;);">
+                    <div class="game-number">94</div>
+                    <div class="game-header">
+                        <div class="game-title">Metro Exodus</div>
+                        <div class="game-size">59.79 GB</div>
+                    </div>
+                    <div class="game-description">Постапокалиптический шутер с путешествием по России на поезде.<br><b> шутер, постапокалипсис, Россия, поезд, выживание, атмосферный, хоррор</b></div>
+                    <input type="checkbox" value="94" id="g-94">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;95&#39;);">
+                    <div class="game-number">95</div>
+                    <div class="game-header">
+                        <div class="game-title">Metro Redux</div>
+                        <div class="game-size">12.62 GB</div>
+                    </div>
+                    <div class="game-description">Две первые части Metro в одном пакете с улучшениями.<br><b> шутер, постапокалипсис, метро, хоррор, выживание, две игры, улучшения</b></div>
+                    <input type="checkbox" value="95" id="g-95">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;96&#39;);">
+                    <div class="game-number">96</div>
+                    <div class="game-header">
+                        <div class="game-title">Micro Machines</div>
+                        <div class="game-size">3.12 GB</div>
+                    </div>
+                    <div class="game-description">Гонки на мини-машинках по бытовым локациям.<br><b> гонки, аркада, мини-машинки, бытовые локации, веселый, семейный, маленький</b></div>
+                    <input type="checkbox" value="96" id="g-96">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;97&#39;);">
+                    <div class="game-number">97</div>
+                    <div class="game-header">
+                        <div class="game-title">Middle earth Shadow of Mordor</div>
+                        <div class="game-size">38.47 GB</div>
+                    </div>
+                    <div class="game-description">Экшен в мире Властелина Колец с системой Немезис.<br><b> экшен, приключение, Властелин Колец, Немезис, орки, мечи, фэнтези</b></div>
+                    <input type="checkbox" value="97" id="g-97">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;98&#39;);">
+                    <div class="game-number">98</div>
+                    <div class="game-header">
+                        <div class="game-title">Middle earth Shadow of War</div>
+                        <div class="game-size">53.89 GB</div>
+                    </div>
+                    <div class="game-description">Продолжение с улучшенной системой Немезис и крепостями.<br><b> экшен, приключение, продолжение, Немезис, крепости, орки, фэнтези</b></div>
+                    <input type="checkbox" value="98" id="g-98">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;99&#39;);">
+                    <div class="game-number">99</div>
+                    <div class="game-header">
+                        <div class="game-title">Minecraft</div>
+                        <div class="game-size">2.13 GB</div>
+                    </div>
+                    <div class="game-description">Песочница для творчества и выживания с бесконечным миром.<br><b> песочница, творчество, выживание, бесконечный мир, строительство, кубы, семейный</b></div>
+                    <input type="checkbox" value="99" id="g-99">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;100&#39;);">
+                    <div class="game-number">100</div>
+                    <div class="game-header">
+                        <div class="game-title">Minecraft Dungeons</div>
+                        <div class="game-size">1.80 GB</div>
+                    </div>
+                    <div class="game-description">Хак-н-слэш в стиле Minecraft с лутом и кооперативом.<br><b> RPG, хак-н-слэш, Minecraft, лут, кооператив, подземелья, аркада</b></div>
+                    <input type="checkbox" value="100" id="g-100">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;101&#39;);">
+                    <div class="game-number">101</div>
+                    <div class="game-header">
+                        <div class="game-title">Mirror's Edge Catalyst</div>
+                        <div class="game-size">16.63 GB</div>
+                    </div>
+                    <div class="game-description">Паркур-экшен в футуристичном городе с свободным бегом.<br><b> экшен, паркур, футуристичный город, свободный бег, скейт, скорость, платформер</b></div>
+                    <input type="checkbox" value="101" id="g-101">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;102&#39;);">
+                    <div class="game-number">102</div>
+                    <div class="game-header">
+                        <div class="game-title">Mortal Kombat 11</div>
+                        <div class="game-size">40.60 GB</div>
+                    </div>
+                    <div class="game-description">Культовый файтинг с жестокими фаталити и сюжетным режимом.<br><b> файтинг, драка, жестокий, фаталити, сюжет, битвы, комбо, кровавый</b></div>
+                    <input type="checkbox" value="102" id="g-102">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;103&#39;);">
+                    <div class="game-number">103</div>
+                    <div class="game-header">
+                        <div class="game-title">+ ULTIMATE</div>
+                        <div class="game-size">36.00 GB</div>
+                    </div>
+                    <div class="game-description">Полная версия Mortal Kombat 11 со всеми DLC персонажами.<br><b> файтинг, драка, Mortal Kombat, все DLC, персонажи, полная версия, битвы</b></div>
+                    <input type="checkbox" value="103" id="g-103">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;104&#39;);">
+                    <div class="game-number">104</div>
+                    <div class="game-header">
+                        <div class="game-title">Mortal Kombat XL</div>
+                        <div class="game-size">43.44 GB</div>
+                    </div>
+                    <div class="game-description">Расширенная версия Mortal Kombat X с дополнениями.<br><b> файтинг, драка, расширенная версия, дополнения, персонажи, битвы, комбо</b></div>
+                    <input type="checkbox" value="104" id="g-104">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;105&#39;);">
+                    <div class="game-number">105</div>
+                    <div class="game-header">
+                        <div class="game-title">MudRunner</div>
+                        <div class="game-size">2.94 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор внедорожной езды по сложной местности.<br><b> симулятор, внедорожник, сложная местность, грязь, грузовики, вызов, реалистичный</b></div>
+                    <input type="checkbox" value="105" id="g-105">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;106&#39;);">
+                    <div class="game-number">106</div>
+                    <div class="game-header">
+                        <div class="game-title">My Friend Peppa Pig</div>
+                        <div class="game-size">2.84 GB</div>
+                    </div>
+                    <div class="game-description">Детская игра по мотивам мультсериала Свинка Пеппа.<br><b> детская, приключение, Свинка Пеппа, мультсериал, образовательный, семейный</b></div>
+                    <input type="checkbox" value="106" id="g-106">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;107&#39;);">
+                    <div class="game-number">107</div>
+                    <div class="game-header">
+                        <div class="game-title">NBA 22 (ENGLISH)</div>
+                        <div class="game-size">49.28 GB</div>
+                    </div>
+                    <div class="game-description">Баскетбольный симулятор NBA 2K22 на английском языке.<br><b> спорт, баскетбол, симулятор, английский, команды, мультиплеер, реализм</b></div>
+                    <input type="checkbox" value="107" id="g-107">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;108&#39;);">
+                    <div class="game-number">108</div>
+                    <div class="game-header">
+                        <div class="game-title">NBA 2K Playgrounds 2</div>
+                        <div class="game-size">8.72 GB</div>
+                    </div>
+                    <div class="game-description">Аркадный баскетбол в стиле NBA Jam.<br><b> спорт, баскетбол, аркада, NBA Jam, веселый, данки, мультяшный</b></div>
+                    <input type="checkbox" value="108" id="g-108">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;109&#39;);">
+                    <div class="game-number">109</div>
+                    <div class="game-header">
+                        <div class="game-title">NHL 20</div>
+                        <div class="game-size">34.33 GB</div>
+                    </div>
+                    <div class="game-description">Хоккейный симулятор с реалистичным геймплеем.<br><b> спорт, хоккей, симулятор, реалистичный, команды, мультиплеер, лед, шайба</b></div>
+                    <input type="checkbox" value="109" id="g-109">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;110&#39;);">
+                    <div class="game-number">110</div>
+                    <div class="game-header">
+                        <div class="game-title">NHL 22 (ENGLISH)</div>
+                        <div class="game-size">39.96 GB</div>
+                    </div>
+                    <div class="game-description">Хоккейный симулятор NHL 22 на английском языке.<br><b> спорт, хоккей, симулятор, английский, команды, реализм, лед, мультиплеер</b></div>
+                    <input type="checkbox" value="110" id="g-110">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;111&#39;);">
+                    <div class="game-number">111</div>
+                    <div class="game-header">
+                        <div class="game-title">Naruto Shippuden Ultimate Trilogy</div>
+                        <div class="game-size">17.73 GB</div>
+                    </div>
+                    <div class="game-description">Три игры по вселенной Наруто в одном пакете.<br><b> файтинг, драка, Наруто, три игры, аниме, персонажи, битвы</b></div>
+                    <input type="checkbox" value="111" id="g-111">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;112&#39;);">
+                    <div class="game-number">112</div>
+                    <div class="game-header">
+                        <div class="game-title">Need for Speed Heat</div>
+                        <div class="game-size">26.70 GB</div>
+                    </div>
+                    <div class="game-description">Уличные гонки днем и ночью с полицией.<br><b> гонки, экшен, уличные, день и ночь, полиция, тачки, тюнинг, открытый мир</b></div>
+                    <input type="checkbox" value="112" id="g-112">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;113&#39;);">
+                    <div class="game-number">113</div>
+                    <div class="game-header">
+                        <div class="game-title">Need for Speed PS2 Collection</div>
+                        <div class="game-size">12.18 GB</div>
+                    </div>
+                    <div class="game-description">Классические Need for Speed с PlayStation 2.<br><b> гонки, коллекция, классика, PlayStation 2, ретро, тачки, аркада</b></div>
+                    <input type="checkbox" value="113" id="g-113">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;114&#39;);">
+                    <div class="game-number">114</div>
+                    <div class="game-header">
+                        <div class="game-title">Need for Speed Payback</div>
+                        <div class="game-size">17.26 GB</div>
+                    </div>
+                    <div class="game-description">Гонки в открытом мире с сюжетом о мести.<br><b> гонки, экшен, открытый мир, месть, сюжет, тачки, тюнинг, гонщики</b></div>
+                    <input type="checkbox" value="114" id="g-114">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;115&#39;);">
+                    <div class="game-number">115</div>
+                    <div class="game-header">
+                        <div class="game-title">Onimusha Warlords</div>
+                        <div class="game-size">10.27 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк классического экшена в феодальной Японии.<br><b> экшен, приключение, ремейк, классика, феодальная Япония, демоны, мечи</b></div>
+                    <input type="checkbox" value="115" id="g-115">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;116&#39;);">
+                    <div class="game-number">116</div>
+                    <div class="game-header">
+                        <div class="game-title">Overpass</div>
+                        <div class="game-size">8.24 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор езды по бездорожью на квадроциклах и внедорожниках.<br><b> симулятор, внедорожник, квадроциклы, бездорожье, грязь, трассы, вызов</b></div>
+                    <input type="checkbox" value="116" id="g-116">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;117&#39;);">
+                    <div class="game-number">117</div>
+                    <div class="game-header">
+                        <div class="game-title">Oxide Room 104</div>
+                        <div class="game-size">3.11 GB</div>
+                    </div>
+                    <div class="game-description">Хоррор-выживание в загадочном отеле с головоломками.<br><b> хоррор, выживание, отель, головоломки, страшный, побег, атмосферный</b></div>
+                    <input type="checkbox" value="117" id="g-117">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;118&#39;);">
+                    <div class="game-number">118</div>
+                    <div class="game-header">
+                        <div class="game-title">Prince of Persia - Sands of Time</div>
+                        <div class="game-size">1.99 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк культового платформера с манипуляцией времени.<br><b> платформер, экшен, ремейк, манипуляция времени, принц, паркур, головоломки</b></div>
+                    <input type="checkbox" value="118" id="g-118">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;119&#39;);">
+                    <div class="game-number">119</div>
+                    <div class="game-header">
+                        <div class="game-title">Pro Evolution Soccer 2020</div>
+                        <div class="game-size">32.33 GB</div>
+                    </div>
+                    <div class="game-description">Футбольный симулятор PES 2020.<br><b> спорт, футбол, симулятор, PES, команды, мультиплеер, реализм</b></div>
+                    <input type="checkbox" value="119" id="g-119">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;120&#39;);">
+                    <div class="game-number">120</div>
+                    <div class="game-header">
+                        <div class="game-title">Red Dead Redemption</div>
+                        <div class="game-size">10.41 GB</div>
+                    </div>
+                    <div class="game-description">Вестерн-приключение Джона Марстона на Диком Западе.<br><b> экшен, приключение, вестерн, Джон Марстон, Дикий Запад, лошади, оружие</b></div>
+                    <input type="checkbox" value="120" id="g-120">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;121&#39;);">
+                    <div class="game-number">121</div>
+                    <div class="game-header">
+                        <div class="game-title">Red Dead Redemption 2</div>
+                        <div class="game-size">105.23 GB</div>
+                    </div>
+                    <div class="game-description">Эпический вестерн о банде Ван дер Линде в Америке 1899 года.<br><b> экшен, приключение, вестерн, банда Ван дер Линде, Америка 1899, открытый мир</b></div>
+                    <input type="checkbox" value="121" id="g-121">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;122&#39;);">
+                    <div class="game-number">122</div>
+                    <div class="game-header">
+                        <div class="game-title">Resident Evil 2</div>
+                        <div class="game-size">25.26 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк классического survival horror в Ракун-Сити.<br><b> хоррор, выживание, ремейк, Ракун-Сити, зомби, Leon, Claire, страшный</b></div>
+                    <input type="checkbox" value="122" id="g-122">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;123&#39;);">
+                    <div class="game-number">123</div>
+                    <div class="game-header">
+                        <div class="game-title">Resident Evil 3</div>
+                        <div class="game-size">24.09 GB</div>
+                    </div>
+                    <div class="game-description">Ремейк Resident Evil 3 с Немезисом.<br><b> хоррор, выживание, ремейк, Немезис, Jill, зомби, побег, страшный</b></div>
+                    <input type="checkbox" value="123" id="g-123">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;124&#39;);">
+                    <div class="game-number">124</div>
+                    <div class="game-header">
+                        <div class="game-title">Resident Evil 4 Remake Deluxe Edition</div>
+                        <div class="game-size">30.94 GB</div>
+                    </div>
+                    <div class="game-description">Переосмысление культового survival horror с Леоном.<br><b> хоррор, экшен, ремейк, Leon, деревня, паразиты, оружие, выживание</b></div>
+                    <input type="checkbox" value="124" id="g-124">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;125&#39;);">
+                    <div class="game-number">125</div>
+                    <div class="game-header">
+                        <div class="game-title">Resident Evil 7</div>
+                        <div class="game-size">39.18 GB</div>
+                    </div>
+                    <div class="game-description">Хоррор от первого лица в заброшенном поместье.<br><b> хоррор, выживание, от первого лица, поместье, семья, страшный, атмосферный</b></div>
+                    <input type="checkbox" value="125" id="g-125">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;126&#39;);">
+                    <div class="game-number">126</div>
+                    <div class="game-header">
+                        <div class="game-title">Resident Evil Village</div>
+                        <div class="game-size">29.34 GB</div>
+                    </div>
+                    <div class="game-description">Продолжение Resident Evil 7 в жуткой деревне.<br><b> хоррор, экшен, деревня, продолжение, страшный, оружие, выживание, вампиры</b></div>
+                    <input type="checkbox" value="126" id="g-126">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;127&#39;);">
+                    <div class="game-number">127</div>
+                    <div class="game-header">
+                        <div class="game-title">Rise of the Tomb Raider</div>
+                        <div class="game-size">18.75 GB</div>
+                    </div>
+                    <div class="game-description">Приключение Лара Крофт в Сибири с выживанием.<br><b> экшен, приключение, Лара Крофт, Сибирь, выживание, головоломки, платформер</b></div>
+                    <input type="checkbox" value="127" id="g-127">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;128&#39;);">
+                    <div class="game-number">128</div>
+                    <div class="game-header">
+                        <div class="game-title">Rocket League</div>
+                        <div class="game-size">15.56 GB</div>
+                    </div>
+                    <div class="game-description">Футбол на ракетных машинах с физикой.<br><b> спорт, футбол, машины, ракетные, физика, аркада, мультиплеер, веселый</b></div>
+                    <input type="checkbox" value="128" id="g-128">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;129&#39;);">
+                    <div class="game-number">129</div>
+                    <div class="game-header">
+                        <div class="game-title">S.T.A.L.K.E.R. - Call of Pripyat</div>
+                        <div class="game-size">5.34 GB</div>
+                    </div>
+                    <div class="game-description">Выживание в Зоне отчуждения ЧАЭС.<br><b> шутер, выживание, Зона отчуждения, ЧАЭС, аномалии, сталкер, атмосферный</b></div>
+                    <input type="checkbox" value="129" id="g-129">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;130&#39;);">
+                    <div class="game-number">130</div>
+                    <div class="game-header">
+                        <div class="game-title">S.T.A.L.K.E.R. - Clear Sky</div>
+                        <div class="game-size">6.64 GB</div>
+                    </div>
+                    <div class="game-description">Приквел оригинального S.T.A.L.K.E.R.<br><b> шутер, выживание, приквел, Зона, сталкер, аномалии, оружие</b></div>
+                    <input type="checkbox" value="130" id="g-130">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;131&#39;);">
+                    <div class="game-number">131</div>
+                    <div class="game-header">
+                        <div class="game-title">S.T.A.L.K.E.R. - Shadow of Chernobyl</div>
+                        <div class="game-size">6.30 GB</div>
+                    </div>
+                    <div class="game-description">Культовый шутер в Чернобыльской зоне.<br><b> шутер, выживание, культовый, Чернобыль, Зона, сталкер, атмосферный</b></div>
+                    <input type="checkbox" value="131" id="g-131">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;132&#39;);">
+                    <div class="game-number">132</div>
+                    <div class="game-header">
+                        <div class="game-title">SIFU</div>
+                        <div class="game-size">11.53 GB</div>
+                    </div>
+                    <div class="game-description">Боевик о кунг-фу с системой старения и перерождения.<br><b> экшен, драка, кунг-фу, старение, перерождение, сложный, бои, рукопашный</b></div>
+                    <input type="checkbox" value="132" id="g-132">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;133&#39;);">
+                    <div class="game-number">133</div>
+                    <div class="game-header">
+                        <div class="game-title">Sackboy</div>
+                        <div class="game-size">35.59 GB</div>
+                    </div>
+                    <div class="game-description">Платформер с LittleBigPlanet в трехмерном мире.<br><b> платформер, LittleBigPlanet, трехмерный, приключение, кооператив, семейный, веселый</b></div>
+                    <input type="checkbox" value="133" id="g-133">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;134&#39;);">
+                    <div class="game-number">134</div>
+                    <div class="game-header">
+                        <div class="game-title">Scribblenauts Mega Pack</div>
+                        <div class="game-size">2.93 GB</div>
+                    </div>
+                    <div class="game-description">Головоломки с созданием предметов по словам.<br><b> головоломки, слова, создание предметов, творческий, образовательный, семейный</b></div>
+                    <input type="checkbox" value="134" id="g-134">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;135&#39;);">
+                    <div class="game-number">135</div>
+                    <div class="game-header">
+                        <div class="game-title">Sega Mega Drive Classics</div>
+                        <div class="game-size">1.68 GB</div>
+                    </div>
+                    <div class="game-description">Коллекция классических игр с Sega Mega Drive.<br><b> коллекция, классика, ретро, Sega, платформер, шутер, аркада, 90-е</b></div>
+                    <input type="checkbox" value="135" id="g-135">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;136&#39;);">
+                    <div class="game-number">136</div>
+                    <div class="game-header">
+                        <div class="game-title">Sekiro Shadows Die Twice</div>
+                        <div class="game-size">16.93 GB</div>
+                    </div>
+                    <div class="game-description">Сложный экшен о ниндзя с механикой воскрешения.<br><b> экшен, приключение, ниндзя, воскрешение, сложный, боссы, мечи, Япония</b></div>
+                    <input type="checkbox" value="136" id="g-136">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;137&#39;);">
+                    <div class="game-number">137</div>
+                    <div class="game-header">
+                        <div class="game-title">Serious Sam Collection</div>
+                        <div class="game-size">7.45 GB</div>
+                    </div>
+                    <div class="game-description">Безумный шутер с ордами монстров и оружием.<br><b> шутер, экшен, орды монстров, оружие, безумный, аркада, кооператив</b></div>
+                    <input type="checkbox" value="137" id="g-137">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;138&#39;);">
+                    <div class="game-number">138</div>
+                    <div class="game-header">
+                        <div class="game-title">Shadow of the Tomb Raider</div>
+                        <div class="game-size">33.32 GB</div>
+                    </div>
+                    <div class="game-description">Завершение трилогии о молодой Лара Крофт.<br><b> экшен, приключение, Лара Крофт, завершение трилогии, джунгли, платформер</b></div>
+                    <input type="checkbox" value="138" id="g-138">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;139&#39;);">
+                    <div class="game-number">139</div>
+                    <div class="game-header">
+                        <div class="game-title">Sniper Elite 5</div>
+                        <div class="game-size">61.86 GB</div>
+                    </div>
+                    <div class="game-description">Тактический шутер с рентгеновскими убийствами.<br><b> шутер, тактический, снайпер, рентгеновские убийства, снайперская, скрытность</b></div>
+                    <input type="checkbox" value="139" id="g-139">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;140&#39;);">
+                    <div class="game-number">140</div>
+                    <div class="game-header">
+                        <div class="game-title">Snow Runner</div>
+                        <div class="game-size">23.47 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор грузоперевозок по экстремальному бездорожью.<br><b> симулятор, грузоперевозки, бездорожье, экстремальный, грузовики, грязь, снег</b></div>
+                    <input type="checkbox" value="140" id="g-140">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;141&#39;);">
+                    <div class="game-number">141</div>
+                    <div class="game-header">
+                        <div class="game-title">Sonic Colors</div>
+                        <div class="game-size">6.26 GB</div>
+                    </div>
+                    <div class="game-description">Платформер с Соником и цветовой силой виспов.<br><b> платформер, Соник, цветовая сила, виспы, скорость, аркада, семейный</b></div>
+                    <input type="checkbox" value="141" id="g-141">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;142&#39;);">
+                    <div class="game-number">142</div>
+                    <div class="game-header">
+                        <div class="game-title">Sonic Forces</div>
+                        <div class="game-size">17.68 GB</div>
+                    </div>
+                    <div class="game-description">Приключение Соника с кастомизируемым персонажем.<br><b> платформер, Соник, кастомизация персонажа, скорость, аркада, битвы, семейный</b></div>
+                    <input type="checkbox" value="142" id="g-142">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;143&#39;);">
+                    <div class="game-number">143</div>
+                    <div class="game-header">
+                        <div class="game-title">Star Wars Battlefront Classic Collection</div>
+                        <div class="game-size">23.38 GB</div>
+                    </div>
+                    <div class="game-description">Классические Battlefront с улучшенной графикой.<br><b> шутер, экшен, классика, Звездные Войны, улучшенная графика, космос</b></div>
+                    <input type="checkbox" value="143" id="g-143">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;144&#39;);">
+                    <div class="game-number">144</div>
+                    <div class="game-header">
+                        <div class="game-title">Star Wars Battlefront I</div>
+                        <div class="game-size">40.25 GB</div>
+                    </div>
+                    <div class="game-description">Масштабные сражения по вселенной Звездных Войн.<br><b> шутер, экшен, Звездные Войны, сражения, космос, персонажи, мультиплеер</b></div>
+                    <input type="checkbox" value="144" id="g-144">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;145&#39;);">
+                    <div class="game-number">145</div>
+                    <div class="game-header">
+                        <div class="game-title">Star Wars Battlefront II</div>
+                        <div class="game-size">64.99 GB</div>
+                    </div>
+                    <div class="game-description">Улучшенная версия с сюжетным режимом и космосом.<br><b> шутер, экшен, улучшенная, сюжетный режим, космос, персонажи, Звездные Войны</b></div>
+                    <input type="checkbox" value="145" id="g-145">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;146&#39;);">
+                    <div class="game-number">146</div>
+                    <div class="game-header">
+                        <div class="game-title">Star Wars Jedi Fallen Order Deluxe Edition</div>
+                        <div class="game-size">58.34 GB</div>
+                    </div>
+                    <div class="game-description">Приключение джедая-падавана после Приказа 66.<br><b> экшен, приключение, джедай, падаван, Приказ 66, мечи, сила, платформер</b></div>
+                    <input type="checkbox" value="146" id="g-146">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;147&#39;);">
+                    <div class="game-number">147</div>
+                    <div class="game-header">
+                        <div class="game-title">Star Wars Jedi Survivor</div>
+                        <div class="game-size">55.88 GB</div>
+                    </div>
+                    <div class="game-description">Продолжение истории Кэла Кестиса.<br><b> экшен, приключение, продолжение, Кэл Кестис, джедай, мечи, сила, космос</b></div>
+                    <input type="checkbox" value="147" id="g-147">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;148&#39;);">
+                    <div class="game-number">148</div>
+                    <div class="game-header">
+                        <div class="game-title">Stray</div>
+                        <div class="game-size">7.04 GB</div>
+                    </div>
+                    <div class="game-description">Приключение кота в киберпанк-городе.<br><b> приключение, кот, киберпанк-город, исследование, платформер, атмосферный, головоломки</b></div>
+                    <input type="checkbox" value="148" id="g-148">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;149&#39;);">
+                    <div class="game-number">149</div>
+                    <div class="game-header">
+                        <div class="game-title">Street Fighter 6</div>
+                        <div class="game-size">57.48 GB</div>
+                    </div>
+                    <div class="game-description">Новейший файтинг с открытым миром и новыми механиками.<br><b> файтинг, драка, новейший, открытый мир, персонажи, комбо, битвы, аркада</b></div>
+                    <input type="checkbox" value="149" id="g-149">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;150&#39;);">
+                    <div class="game-number">150</div>
+                    <div class="game-header">
+                        <div class="game-title">Street Fighter V</div>
+                        <div class="game-size">40.26 GB</div>
+                    </div>
+                    <div class="game-description">Культовый файтинг с обновлениями и сетевой игрой.<br><b> файтинг, драка, культовый, обновления, сетевой, персонажи, комбо, аркада</b></div>
+                    <input type="checkbox" value="150" id="g-150">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;151&#39;);">
+                    <div class="game-number">151</div>
+                    <div class="game-header">
+                        <div class="game-title">Subnautica</div>
+                        <div class="game-size">6.93 GB</div>
+                    </div>
+                    <div class="game-description">Выживание в подводном мире на инопланетной планете.<br><b> приключение, выживание, подводный мир, инопланетная планете, исследование, строительство</b></div>
+                    <input type="checkbox" value="151" id="g-151">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;152&#39;);">
+                    <div class="game-number">152</div>
+                    <div class="game-header">
+                        <div class="game-title">Team Sonic Racing</div>
+                        <div class="game-size">16.55 GB</div>
+                    </div>
+                    <div class="game-description">Командные гонки с персонажами вселенной Соника.<br><b> гонки, аркада, Соник, командные, персонажи, картинги, веселый, семейный</b></div>
+                    <input type="checkbox" value="152" id="g-152">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;153&#39;);">
+                    <div class="game-number">153</div>
+                    <div class="game-header">
+                        <div class="game-title">Teenage Mutant Ninja Turtles</div>
+                        <div class="game-size">0.97 GB</div>
+                    </div>
+                    <div class="game-description">Битва черепашек-ниндзя с Шреддером и Фут-кланом.<br><b> экшен, драка, черепашки-ниндзя, Шреддер, Фут-клан, битвы, кооператив</b></div>
+                    <input type="checkbox" value="153" id="g-153">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;154&#39;);">
+                    <div class="game-number">154</div>
+                    <div class="game-header">
+                        <div class="game-title">Tekken 7</div>
+                        <div class="game-size">55.01 GB</div>
+                    </div>
+                    <div class="game-description">3D файтинг с глубоким сюжетом и персонажами.<br><b> файтинг, драка, 3D, глубокий сюжет, персонажи, комбо, битвы, аркада</b></div>
+                    <input type="checkbox" value="154" id="g-154">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;155&#39;);">
+                    <div class="game-number">155</div>
+                    <div class="game-header">
+                        <div class="game-title">The Forest</div>
+                        <div class="game-size">1.87 GB</div>
+                    </div>
+                    <div class="game-description">Выживание на острове с каннибалами и строительством.<br><b> выживание, хоррор, остров, каннибалы, строительство, кооператив, страшный</b></div>
+                    <input type="checkbox" value="155" id="g-155">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;156&#39;);">
+                    <div class="game-number">156</div>
+                    <div class="game-header">
+                        <div class="game-title">The Last of Us Part II</div>
+                        <div class="game-size">99.32 GB</div>
+                    </div>
+                    <div class="game-description">Эмоциональное постапокалиптическое приключение.<br><b> экшен, приключение, постапокалипсис, эмоциональный, выживание, драма, зомби</b></div>
+                    <input type="checkbox" value="156" id="g-156">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;157&#39;);">
+                    <div class="game-number">157</div>
+                    <div class="game-header">
+                        <div class="game-title">The Last of Us Remastered</div>
+                        <div class="game-size">42.73 GB</div>
+                    </div>
+                    <div class="game-description">Ремастер культовой истории о выживании.<br><b> экшен, приключение, постапокалипсис, ремастер, выживание, драма, зомби</b></div>
+                    <input type="checkbox" value="157" id="g-157">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;158&#39;);">
+                    <div class="game-number">158</div>
+                    <div class="game-header">
+                        <div class="game-title">The Playroom VR</div>
+                        <div class="game-size">3.18 GB</div>
+                    </div>
+                    <div class="game-description">Коллекция мини-игр для PlayStation VR.<br><b> VR, мини-игры, PlayStation VR, семейный, веселый, виртуальная реальность</b></div>
+                    <input type="checkbox" value="158" id="g-158">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;159&#39;);">
+                    <div class="game-number">159</div>
+                    <div class="game-header">
+                        <div class="game-title">The Quarry</div>
+                        <div class="game-size">32.92 GB</div>
+                    </div>
+                    <div class="game-description">Интерактивный хоррор о подростках в летнем лагере.<br><b> хоррор, интерактивный, подростки, летний лагерь, выбор, страшный, киноигра</b></div>
+                    <input type="checkbox" value="159" id="g-159">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;160&#39;);">
+                    <div class="game-number">160</div>
+                    <div class="game-header">
+                        <div class="game-title">The Sims 4</div>
+                        <div class="game-size">12.54 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор жизни с созданием персонажей и домов.<br><b> симулятор, жизнь, создание персонажей, дома, семья, творчество, песочница</b></div>
+                    <input type="checkbox" value="160" id="g-160">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;161&#39;);">
+                    <div class="game-number">161</div>
+                    <div class="game-header">
+                        <div class="game-title">The Witcher 3 Wild Hunt</div>
+                        <div class="game-size">40.93 GB</div>
+                    </div>
+                    <div class="game-description">Эпическая RPG о ведьмаке Геральте из Ривии.<br><b> RPG, приключение, ведьмак, Геральт, фэнтези, открытый мир, монстры, квесты</b></div>
+                    <input type="checkbox" value="161" id="g-161">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;162&#39;);">
+                    <div class="game-number">162</div>
+                    <div class="game-header">
+                        <div class="game-title">Titanfall 2</div>
+                        <div class="game-size">49.18 GB</div>
+                    </div>
+                    <div class="game-description">Шутер с пилотами и титанами, культовая кампания.<br><b> шутер, экшен, пилоты, титаны, кампания, движение, футуристичный, мультиплеер</b></div>
+                    <input type="checkbox" value="162" id="g-162">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;163&#39;);">
+                    <div class="game-number">163</div>
+                    <div class="game-header">
+                        <div class="game-title">Tom Clancy's Ghost Recon Wildlands</div>
+                        <div class="game-size">70.28 GB</div>
+                    </div>
+                    <div class="game-description">Тактический шутер в открытом мире Боливии.<br><b> шутер, тактический, открытый мир, Боливия, команда, скрытность, оружие</b></div>
+                    <input type="checkbox" value="163" id="g-163">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;164&#39;);">
+                    <div class="game-number">164</div>
+                    <div class="game-header">
+                        <div class="game-title">UFC 3</div>
+                        <div class="game-size">19.19 GB</div>
+                    </div>
+                    <div class="game-description">Симулятор смешанных единоборств UFC.<br><b> спорт, единоборства, симулятор, UFC, бои, реалистичный, персонажи, мультиплеер</b></div>
+                    <input type="checkbox" value="164" id="g-164">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;165&#39;);">
+                    <div class="game-number">165</div>
+                    <div class="game-header">
+                        <div class="game-title">UFC 4</div>
+                        <div class="game-size">28.75 GB</div>
+                    </div>
+                    <div class="game-description">Улучшенный симулятор UFC с новыми механиками.<br><b> спорт, единоборства, симулятор, UFC, улучшенный, бои, персонажи, мультиплеер</b></div>
+                    <input type="checkbox" value="165" id="g-165">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;166&#39;);">
+                    <div class="game-number">166</div>
+                    <div class="game-header">
+                        <div class="game-title">Uncharted 4 A Thief’s End</div>
+                        <div class="game-size">63.31 GB</div>
+                    </div>
+                    <div class="game-description">Финальное приключение Нейтана Дрейка за сокровищами.<br><b> экшен, приключение, Нейтан Дрейк, сокровища, платформер, стрелялка, финал</b></div>
+                    <input type="checkbox" value="166" id="g-166">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;167&#39;);">
+                    <div class="game-number">167</div>
+                    <div class="game-header">
+                        <div class="game-title">Unravel Two</div>
+                        <div class="game-size">3.50 GB</div>
+                    </div>
+                    <div class="game-description">Кооперативный платформер с ниточными персонажами.<br><b> платформер, кооператив, ниточные персонажи, головоломки, красивая, семейный, два игрока</b></div>
+                    <input type="checkbox" value="167" id="g-167">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;168&#39;);">
+                    <div class="game-number">168</div>
+                    <div class="game-header">
+                        <div class="game-title">WWE 2K20 (ENGLISH)</div>
+                        <div class="game-size">47.83 GB</div>
+                    </div>
+                    <div class="game-description">Реслинг-симулятор WWE на английском языке.<br><b> спорт, реслинг, симулятор, WWE, английский, персонажи, битвы, аркада</b></div>
+                    <input type="checkbox" value="168" id="g-168">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;169&#39;);">
+                    <div class="game-number">169</div>
+                    <div class="game-header">
+                        <div class="game-title">Watch Dogs 2</div>
+                        <div class="game-size">25.07 GB</div>
+                    </div>
+                    <div class="game-description">Хакерское приключение в Сан-Франциско.<br><b> экшен, приключение, хакер, Сан-Франциско, открытый мир, технологии, сюжет</b></div>
+                    <input type="checkbox" value="169" id="g-169">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;170&#39;);">
+                    <div class="game-number">170</div>
+                    <div class="game-header">
+                        <div class="game-title">Watch Dogs Complete Edition</div>
+                        <div class="game-size">24.86 GB</div>
+                    </div>
+                    <div class="game-description">Первая часть Watch Dogs со всеми DLC.<br><b> экшен, приключение, хакер, первая часть, все DLC, Чикаго, технологии</b></div>
+                    <input type="checkbox" value="170" id="g-170">
+                </div>
+                
+                <div class="game-item  " onclick="toggleGame(this, &#39;171&#39;);">
+                    <div class="game-number">171</div>
+                    <div class="game-header">
+                        <div class="game-title">Watch Dogs Legion</div>
+                        <div class="game-size">33.43 GB</div>
+                    </div>
+                    <div class="game-description">Хакерское сопротивление в футуристичном Лондоне.<br><b> экшен, приключение, хакер, сопротивление, Лондон, футуристичный, открытый мир</b></div>
+                    <input type="checkbox" value="171" id="g-171">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer" id="footerPanel">
+        <div class="stats">
+            <div class="stat-row">
+                <span class="stat-label">Выбрано игр:</span>
+                <span class="stat-value selected" id="ags">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Размер:</span>
+                <span class="stat-value size" id="gb1">0</span>
+                <span class="stat-label">/</span>
+                <span class="stat-value limit" id="gb2">0</span>
+                <span class="stat-label">GB</span>
+            </div>
+            <div class="storage-info">
+                <span class="stat-label">Использовано:</span>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-large" id="shareBtn" style="display: none;" onclick="share(); return false">&#128230; Поделиться</button>
+            <button class="btn btn-large accent" id="createBtn" onclick="submitForm(); return false">&#128640; Создать</button>
+        </div>
+    </div>
+    
+    <form id="mainForm" action="https://ps4hen.ru/gen/" method="GET" style="display: none;">
+        <input type="hidden" name="h" id="formH" value="">
+        <input type="hidden" name="g" id="formG" value="">
+    </form>
+
+    <!-- Модальное окно -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">&#9888; Сообщение</span>
+            </div>
+            <div class="modal-content" id="modalContent">
+                Текст сообщения
+            </div>
+            <div class="modal-actions" id="modalActions">
+                <button class="modal-btn modal-btn-ok" id="modalOkBtn">OK</button>
+                <button class="modal-btn modal-btn-cancel" id="modalCancelBtn" style="display: none;">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Глобальные переменные
+        const recommendedGames = {
+'3400': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed IV Black Flag", "Assassin's Creed Valhalla", "Assetto Corsa - Competizione", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Beyond Two Souls", "BioShock The Collection", "Bloodborne", "Call of Duty Black Ops III", "Call of Duty Ghosts", "Call of Duty Vanguard", "Contra Collection", "Crash Team Racing Nitro Fueled (CTR)", "Crysis 3 Remastered", "Cuphead", "Cyberpunk 2077", "Dark Souls 3", "Days Gone", "Dead Cells", "Detroit Become Human", "Devil May Cry 5", "EA Sports FC 25", "Elden Ring", "FIFA 23", "Far Cry 5", "Far Cry 6", "Final Fantasy VII Remake", "Final Fantasy X", "Final Fantasy XV", "Five Nights at Freddys Core Collection", "GTA V", "Garfield Kart", "Ghost of Tsushima", "Ghostbusters", "Goat Simulator", "God of War", "God of War III Remastered", "God of War Ragnarok", "Gran Turismo Sport", "Guns Gore and Cannoli", "Hitman 2", "Hogwarts Legacy", "Horizon Zero Dawn", "Horizon запретный запад", "Injustice 2", "It Takes Two", "Jump Force", "Kena Bridge of Spirits", "Lego Ninja Go Movie", "Liftoff Drone Racing", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Marvels Spider-Man", "Marvel's Spider-Man Miles Morales", "Metro Exodus", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "Mortal Kombat 11 + ULTIMATE", "Mortal Kombat XL", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "NHL 20", "Naruto Shippuden Ultimate Trilogy", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Red Dead Redemption 2", "Resident Evil 3", "Resident Evil 4 Remake Deluxe Edition", "Resident Evil Village", "Rise of the Tomb Raider", "Rocket League", "S.T.A.L.K.E.R. - Call of Pripyat", "S.T.A.L.K.E.R. - Clear Sky", "S.T.A.L.K.E.R. - Shadow of Chernobyl", "Sackboy", "Sekiro Shadows Die Twice", "Shadow of the Tomb Raider", "Sniper Elite 5", "Snow Runner", "Sonic Colors", "Sonic Forces", "Star Wars Battlefront I", "Star Wars Jedi Survivor", "Stray", "Street Fighter V", "Subnautica", "Team Sonic Racing", "Teenage Mutant Ninja Turtles", "The Last of Us Part II", "The Last of Us Remastered", "The Sims 4", "The Witcher 3 Wild Hunt", "Titanfall 2", "UFC 4", "Uncharted 4 A Thief’s End", "Unravel Two", "Watch Dogs Complete Edition", "Watch Dogs Legion"],
+'600' : ["Air Missions", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Days Gone", "Dead Cells", "FIFA 23", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Resident Evil 4 Remake Deluxe Edition", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 3", "Unravel Two"],
+'645' : ["Air Missions", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Days Gone", "Dead Cells", "FIFA 23", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Resident Evil 4 Remake Deluxe Edition", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 3", "Unravel Two"],
+'380': ["Air Missions", "Atomic Heart Premium Edition", "Beach Buggy Racing", "Contra Collection", "Cuphead", "Dead Cells", "FIFA 22", "GTA V", "Garfield Kart", "Goat Simulator", "Guns Gore and Cannoli", "Hogwarts Legacy", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Minecraft", "Minecraft Dungeons", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "Need for Speed Payback", "Prince of Persia - Sands of Time", "Stray", "Teenage Mutant Ninja Turtles", "The Sims 4", "The Witcher 3 Wild Hunt", "Unravel Two"],
+'1700': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Cyberpunk 2077", "Days Gone", "Dead Cells", "Detroit Become Human", "FIFA 23", "Far Cry 5", "GTA V", "Garfield Kart", "Goat Simulator", "God of War", "God of War Ragnarok", "Guns Gore and Cannoli", "Hogwarts Legacy", "Horizon Zero Dawn", "Horizon запретный запад", "Injustice 2", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Exodus", "Metro Redux", "Micro Machines", "Minecraft", "Minecraft Dungeons", "Sega Mega Drive Classics", "Assetto Corsa - Competizione", "Mortal Kombat 11", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "NHL 20", "Naruto Shippuden Ultimate Trilogy", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Red Dead Redemption", "Red Dead Redemption 2", "Biomutant", "Civilization 7", "Call of Duty Ghosts",  "The Forest", "Assassin's Creed Rogue", "Rise of the Tomb Raider", "S.T.A.L.K.E.R. - Call of Pripyat", "S.T.A.L.K.E.R. - Clear Sky", "S.T.A.L.K.E.R. - Shadow of Chernobyl", "Star Wars Jedi Survivor", "Stray", "Subnautica", "Teenage Mutant Ninja Turtles", "The Last of Us Part II", "The Last of Us Remastered", "The Sims 4", "The Witcher 3 Wild Hunt", "UFC 4", "Unravel Two", "Watch Dogs Complete Edition"],
+'820': ["A Way Out (2 джойстика)", "Air Missions", "Assassin's Creed Mirage", "Atomic Heart Premium Edition", "Battlefield 5", "Beach Buggy Racing", "Injustice 2", "Contra Collection", "Crysis 3 Remastered", "Cuphead", "Days Gone", "Dead Cells", "UFC 4", "Far Cry 5", "Garfield Kart", "GTA V", "Goat Simulator", "God of War", "FIFA 23", "Mortal Kombat 11", "Guns Gore and Cannoli", "Hogwarts Legacy", "It Takes Two", "Kena Bridge of Spirits", "Little Nightmares", "Marvel's Spider-Man Miles Morales", "Metro Redux", "Micro Machines", "Minecraft Dungeons", "Minecraft", "MudRunner", "My Friend Peppa Pig", "NBA 2K Playgrounds 2", "Need for Speed Heat", "Need for Speed Payback", "Overpass", "Prince of Persia - Sands of Time", "Naruto Shippuden Ultimate Trilogy", "The Sims 4", "Red Dead Redemption", "Rise of the Tomb Raider","Sonic Colors", "S.T.A.L.K.E.R. - Call of Pripyat", "Stray", "Subnautica", "The Witcher 3 Wild Hunt", "Teenage Mutant Ninja Turtles", "Unravel Two"]
+        };
+        var GB = 0;
+        var ALLGB = 0;
+        var selectedHDD = 0;
+        var selectedGames = new Set();
+        
+        // Простые модальные функции
+        function showAlert(message, title) {
+            return new Promise(function(resolve) {
+                document.getElementById('modalTitle').innerHTML = (title || '&#9888; Сообщение');
+                document.getElementById('modalContent').innerHTML = message;
+                document.getElementById('modalOkBtn').style.display = 'block';
+                document.getElementById('modalCancelBtn').style.display = 'none';
+                document.getElementById('modalOverlay').style.display = 'flex';
+                
+                var okBtn = document.getElementById('modalOkBtn');
+                okBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(true);
+                };
+                
+                // Закрытие по клику на оверлей
+                document.getElementById('modalOverlay').onclick = function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        resolve(true);
+                    }
+                };
+            });
+        }
+        
+        function showConfirm(message, title) {
+            return new Promise(function(resolve) {
+                document.getElementById('modalTitle').innerHTML = (title || '&#10067; Подтверждение');
+                document.getElementById('modalContent').innerHTML = message;
+                document.getElementById('modalOkBtn').style.display = 'block';
+                document.getElementById('modalCancelBtn').style.display = 'block';
+                document.getElementById('modalOverlay').style.display = 'flex';
+                
+                var okBtn = document.getElementById('modalOkBtn');
+                var cancelBtn = document.getElementById('modalCancelBtn');
+                
+                okBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(true);
+                };
+                
+                cancelBtn.onclick = function() {
+                    document.getElementById('modalOverlay').style.display = 'none';
+                    resolve(false);
+                };
+                
+                // Закрытие по клику на оверлей = отмена
+                document.getElementById('modalOverlay').onclick = function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        resolve(false);
+                    }
+                };
+            });
+        }
+        
+        // Функция для скрытия кнопки "Поделиться"
+        function hideShareBtn() {
+            document.getElementById('shareBtn').style.display = 'none';
+            document.getElementById('createBtn').style.display = 'block';
+        }
+        
+        // Функция для показа кнопки "Поделиться"
+        function showShareBtn() {
+            document.getElementById('shareBtn').style.display = 'block';
+            document.getElementById('createBtn').style.display = 'none';
+        }
+        
+        // Функция для сворачивания/разворачивания секции HDD
+        function toggleHDDSection() {
+            const section = document.getElementById('hddSection');
+            const content = document.getElementById('hddContainer');
+            const toggleBtn = document.getElementById('hddToggle');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'grid';
+                toggleBtn.textContent = '\u2212';
+                section.classList.remove('collapsed');
+            } else {
+                content.style.display = 'none';
+                toggleBtn.textContent = '+';
+                section.classList.add('collapsed');
+            }
+        }
+        
+        // Функция для выбора/снятия всех игр
+        function checkall(s) {
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput.value.length > 0) {
+                showAlert('Нельзя использовать массовые операции во время поиска. Сначала очистите поле поиска.', '&#9888; Внимание');
+                return;
+            }
+            
+            const checkboxes = document.querySelectorAll('#gamesContainer input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                cb.checked = s;
+                const gameItem = cb.closest('.game-item');
+                if (gameItem) {
+                    if (s) {
+                        gameItem.classList.add('selected');
+                        gameItem.classList.remove('hidden');
+                        selectedGames.add(cb.value);
+                    } else {
+                        gameItem.classList.remove('selected');
+                        selectedGames.delete(cb.value);
+                    }
+                }
+            });
+            updateTextArea();
+        }
+        
+        // Функция для декодирования HTML entities
+        function decodeHtmlEntities(str) {
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = str;
+            return textarea.value;
+        }
+        
+        // Функция для автоматического выбора рекомендованных игр
+        function selReco() {
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput.value.length > 0) {
+                showAlert('Нельзя использовать авто-выбор во время поиска. Сначала очистите поле поиска.', '&#9888; Внимание');
+                return;
+            }
+            
+            if (GB === 0) return;
+            
+            // Сначала снимаем все выделения
+            checkall(0);
+            
+            // Получаем рекомендованные игры для выбранного HDD
+            const hddKey = GB.toString();
+            const recommendedList = recommendedGames[hddKey] || [];
+            
+            // Если нет рекомендованных игр для этого объема
+            if (recommendedList.length === 0) {
+                showAlert('Для выбранного объема HDD нет рекомендованных игр', '&#10067; Информация');
+                return;
+            }
+            
+            // Создаем Map для быстрого поиска
+            const recommendedMap = new Map();
+            recommendedList.forEach(game => {
+                const cleanGame = game.replace(/&#\d+;/g, '').trim();
+                recommendedMap.set(cleanGame.toLowerCase(), true);
+            });
+            
+            // Находим и выбираем рекомендованные игры по точному названию
+            const gameItems = document.querySelectorAll('.game-item');
+            let selectedCount = 0;
+            
+            gameItems.forEach(item => {
+                const gameTitleElement = item.querySelector('.game-title');
+                const gameName = gameTitleElement.textContent.trim();
+                const decodedGameName = decodeHtmlEntities(gameName);
+                const isRecommended = recommendedMap.has(decodedGameName.toLowerCase());
+                
+                if (isRecommended) {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        item.classList.add('selected');
+                        item.classList.remove('hidden');
+                        selectedGames.add(checkbox.value);
+                        selectedCount++;
+                    }
+                }
+            });
+            
+            if (selectedCount === 0) {
+                showAlert('Рекомендованные игры не найдены в списке. Возможно, названия не совпадают.', '&#10067; Информация');
+            } else {
+                hideShareBtn();
+                showAlert('Выбрано ' + selectedCount + ' рекомендованных игр', '&#9989; Готово');
+            }
+            
+            updateTextArea();
+            sortGames();
+        }
+        
+        // Обработчики для кнопок
+        async function handleResetGames() {
+            const confirmed = await showConfirm('Удалить выбранные игры?', '&#9888; Сброс выбора');
+            if (confirmed) {
+                checkall(0);
+                hideShareBtn();
+                sortGames();
+            }
+        }
+        
+        async function handleAutoSelect() {
+            const confirmed = await showConfirm('Выбрать рекомендуемые игры? Текущий список будет удален.', '&#9733; Автовыбор');
+            if (confirmed) {
+                checkall(0);
+                hideShareBtn();
+                selReco();
+            }
+        }
+        
+        // Обновление текстового поля и подсчетов
+        function updateTextArea() {
+            ALLGB = 0;
+            const allVals = [];
+            
+            document.querySelectorAll('#gamesContainer input[type="checkbox"]:checked').forEach(function(cb) {
+                const sizeElement = cb.closest('.game-item').querySelector('.game-size');
+                const sizeText = sizeElement.textContent.replace(' GB', '');
+                ALLGB += parseFloat(sizeText);
+                allVals.push(parseInt(cb.value));
+            });
+            
+            document.getElementById('formG').value = allVals.join(',');
+            document.getElementById('ags').textContent = allVals.length;
+            updateGB();
+        }
+        
+        function updateGB() {
+            document.getElementById('gb2').textContent = GB;
+            document.getElementById('gb1').textContent = Math.trunc(ALLGB);
+            
+            const footer = document.getElementById('footerPanel');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (GB > 0) {
+                const percentage = Math.min((ALLGB / GB) * 100, 100);
+                progressBar.style.width = percentage + '%';
+                
+                if (percentage > 80) {
+                    progressBar.classList.add('over');
+                } else {
+                    progressBar.classList.remove('over');
+                }
+            }
+            
+            if (GB < ALLGB) {
+                footer.classList.add('overlimit');
+                progressBar.classList.add('over');
+            } else {
+                footer.classList.remove('overlimit');
+                if (ALLGB / GB <= 0.8) {
+                    progressBar.classList.remove('over');
+                }
+            }
+        }
+        
+        function updateHdd() {
+            GB = selectedHDD;
+            if (GB > 0) {
+                document.getElementById('gamesSection').style.display = 'block';
+            }
+            updateGB();
+        }
+        
+        // Выбор HDD
+        function selectHDD(element, value) {
+            document.querySelectorAll('.hdd-option').forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('input[type="radio"]').checked = false;
+            });
+            
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+            selectedHDD = parseFloat(value);
+            document.getElementById('formH').value = value;
+            
+            updateHdd();
+            
+            setTimeout(() => {
+                toggleHDDSection();
+            }, 300);
+        }
+        
+        // Переключение игры
+        function toggleGame(element, gameId) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            if (!checkbox) return;
+            
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                element.classList.remove('selected');
+                selectedGames.delete(gameId);
+            } else {
+                checkbox.checked = true;
+                element.classList.add('selected');
+                selectedGames.add(gameId);
+            }
+            
+            updateTextArea();
+            
+            // ВСЕГДА скрываем кнопку "Поделиться" при изменении выбора
+            hideShareBtn();
+        }
+        
+        // Функция для сортировки игр (выбранные вверху)
+        function sortGames() {
+            const container = document.getElementById('gamesContainer');
+            if (!container) return;
+            
+            const gameItems = Array.from(container.querySelectorAll('.game-item'));
+            
+            gameItems.sort((a, b) => {
+                const aChecked = a.querySelector('input[type="checkbox"]').checked;
+                const bChecked = b.querySelector('input[type="checkbox"]').checked;
+                
+                if (aChecked && !bChecked) return -1;
+                if (!aChecked && bChecked) return 1;
+                
+                const aNum = parseInt(a.querySelector('.game-number').textContent);
+                const bNum = parseInt(b.querySelector('.game-number').textContent);
+                return aNum - bNum;
+            });
+            
+            gameItems.forEach(item => {
+                container.appendChild(item);
+            });
+        }
+        
+        // Отправка формы
+        async function submitForm() {
+            if (GB <= 0) {
+                await showAlert('Выберите объем вашей памяти консоли!', '&#9888; Внимание');
+                return false;
+            }
+            
+            const selectedGamesStr = document.getElementById('formG').value;
+            if (!selectedGamesStr) {
+                await showAlert('Выберите игры!', '&#9888; Внимание');
+                return false;
+            }
+            
+            if (GB < ALLGB) {
+                await showAlert('Превышен объем игр, измените список!', '&#10060; Превышение лимита');
+                return false;
+            }
+            
+            document.getElementById('formH').value = GB;
+            document.getElementById('mainForm').submit();
+            return true;
+        }
+        
+        // Поделиться
+        async function share() {
+            const gamesStr = document.getElementById('formG').value;
+            
+            if (!gamesStr) {
+                await showAlert('Сначала выберите игры!', '&#9888; Внимание');
+                return false;
+            }
+            showAlert('Список игр скопирован, теперь можно вставить в сообщение', '&#9989; Готово');
+            const tempInput = document.createElement('textarea');
+            tempInput.value = gamesStr;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'ИГРЫ PS4',
+                        text: document.getElementById('ags').textContent + ' игр, ' + 
+                              Math.trunc(ALLGB) + '/' + GB + ' ГБ',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Ошибка при использовании Web Share API:', err);
+                }
+            }
+            return false;
+        }
+        
+        // Функции для поиска игр
+        function searchGames() {
+            const searchInput = document.getElementById('gameSearch');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const clearBtn = document.getElementById('clearSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            if (searchTerm.length > 0) {
+                clearBtn.style.display = 'block';
+                if (gameControls) {
+                    gameControls.style.display = 'none';
+                }
+            } else {
+                clearBtn.style.display = 'none';
+                if (gameControls) {
+                    gameControls.style.display = 'flex';
+                }
+            }
+            
+            const gameItems = document.querySelectorAll('.game-item');
+            let foundCount = 0;
+            
+            gameItems.forEach(item => {
+                const gameTitle = item.querySelector('.game-title').textContent.toLowerCase();
+                const gameDescription = item.querySelector('.game-description').textContent.toLowerCase();
+                
+                if (gameTitle.includes(searchTerm) || gameDescription.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    foundCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            if (searchTerm.length > 0) {
+                document.getElementById('ags').textContent = foundCount;
+            } else {
+                updateTextArea();
+            }
+        }
+        
+        function clearSearch() {
+            const searchInput = document.getElementById('gameSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            searchInput.value = '';
+            searchInput.focus();
+            
+            if (gameControls) {
+                gameControls.style.display = 'flex';
+            }
+            
+            searchGames();
+        }
+        
+        function onSearchFocus() {
+            const gameControls = document.querySelector('.game-controls');
+            if (gameControls) {
+                gameControls.style.display = 'none';
+            }
+            
+            const searchInput = document.getElementById('gameSearch');
+            const clearBtn = document.getElementById('clearSearch');
+            if (searchInput.value.length === 0) {
+                clearBtn.style.display = 'none';
+            }
+        }
+        
+        function onSearchBlur() {
+            const searchInput = document.getElementById('gameSearch');
+            const gameControls = document.querySelector('.game-controls');
+            
+            if (searchInput.value.length === 0) {
+                setTimeout(() => {
+                    if (gameControls) {
+                        gameControls.style.display = 'flex';
+                    }
+                }, 200);
+            }
+        }
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedHddOption = document.querySelector('.hdd-option.selected');
+            if (selectedHddOption) {
+                const radio = selectedHddOption.querySelector('input[type="radio"]');
+                selectedHDD = parseFloat(radio ? radio.value : '0');
+                updateHdd();
+            }
+            
+            document.querySelectorAll('#gamesContainer input[type="checkbox"]:checked').forEach(cb => {
+                selectedGames.add(cb.value);
+            });
+            
+            updateTextArea();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedGamesParam = urlParams.get('g');
+            if (selectedGamesParam && selectedGamesParam.length > 0) {
+                showShareBtn();
+                setTimeout(() => {
+                    sortGames();
+                }, 300);
+            }
+            
+            if (selectedHDD > 0) {
+                setTimeout(() => {
+                    toggleHDDSection();
+                }, 500);
+            }
+            
+            const searchInput = document.getElementById('gameSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', searchGames);
+            }
+            
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            
+      
+             
+        });
+    </script>
+
+</body></html>
